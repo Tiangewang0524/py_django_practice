@@ -152,6 +152,7 @@ if __name__ == '__main__':
     print("{} 的牌为:{}".format(player_1.name, player_1.play()))
     print("{} 的牌为:{}".format(player_2.name, player_2.play()))
     print(repeat_list)
+    
 
 
 
