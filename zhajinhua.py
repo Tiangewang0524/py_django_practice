@@ -47,6 +47,7 @@ class HandCard:
             self.cards = tmp_list
         else:
             self.cards = tmp_list
+        self.level = self.get_level()
         # 三张牌确定之后，确定牌型
 
     # 打印牌
@@ -102,34 +103,48 @@ class HandCard:
         if card1_point == card2_point == card3_point:
             # print("豹子")
             self.cards.append('豹子')
+            return 6
         elif card1_color == card2_color == card3_color:
-            # print("金花")
-            self.cards.append('金花')
             if card1_point == card2_point + 1 == card3_point + 2:
                 # print("同花顺")
                 self.cards.append('同花顺')
+                return 5
+            else:
+                # print("金花")
+                self.cards.append('金花')
+                return 4
         elif card1_point == card2_point + 1 == card3_point + 2:
             # print("顺子")
             self.cards.append('顺子')
+            return 3
         elif card1_point == card2_point or card1_point == card3_point or card2_point == card3_point:
             # print("对子")
             self.cards.append('对子')
+            return 2
         else:
             # print("单牌")
             self.cards.append('单牌')
+            return 1
 
     def __str__(self):
         return "{} {} {}, 牌型为:{}。".format(self.cards[0], self.cards[1], self.cards[2], self.cards[3])
 
 class Player:
-
-    def __init__(self, name):
+    def __init__(self, name, handcard):
         self.name = name
+        self.handcard = handcard
 
-    def play(self):
-        player_cards = HandCard()
-        player_cards.get_level()
-        return player_cards.__str__()
+    def show_handcard(self):
+        return self.handcard.__str__()
+
+    # 与其他玩家比较
+    def cmp_player(self, other_player):
+        pass
+
+    # 打印赢家
+    def print_winner(self):
+        pass
+
 
 if __name__ == '__main__':
     # point1 = random.randint(2, 14)
@@ -149,8 +164,8 @@ if __name__ == '__main__':
     # player1_cards.get_level()
     player_1 = Player('张飞')
     player_2 = Player('关羽')
-    print("{} 的牌为:{}".format(player_1.name, player_1.play()))
-    print("{} 的牌为:{}".format(player_2.name, player_2.play()))
+    print("{} 的牌为:{}".format(player_1.name, player_1.show_handcard()))
+    print("{} 的牌为:{}".format(player_2.name, player_2.show_handcard()))
     print(repeat_list)
     
 
