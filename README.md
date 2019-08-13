@@ -13,4 +13,10 @@ pip install mysqlclient
 
 ### js pre:
 jquery-3.4.1.js
+
 jquery-cookie.js
+
+download from: https://jquery.com/download/
+
+ajax
+
