@@ -1,8 +1,8 @@
 # py_django_practice
 
-Some small python programs for practice.
+Some small python and django programs for practice.
 
-# prerequisite
+## Prerequisite
 pip install django
 
 pip install virtualenv
@@ -11,5 +11,6 @@ pip install virtualenvwrapper-win
 
 pip install mysqlclient
 
+### js pre:
 jquery-3.4.1.js
 jquery-cookie.js
