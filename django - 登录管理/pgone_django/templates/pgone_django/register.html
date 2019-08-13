@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hans">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>注册</title>
+	{% load static %}
+    <link rel="stylesheet" type="text/css" href={% static "pgone_django/base.css" %} />
+    <link rel="stylesheet" type="text/css" href={% static "pgone_django/login.css" %} />
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href={% static "pgone_django/responsive.css" %} />
+    <meta name="robots" content="NONE,NOARCHIVE">
+</head>
+
+<body class="register" data-admin-utc-offset="28800">
+
+	<!-- Container -->
+	<div id="container">
+    <!-- Header -->
+    	<div id="header">
+        	<div id="branding">
+				<h1 id="site-name"><a href="http://127.0.0.1:8000/admin/">用户注册</a></h1>
+        	</div>
+
+    	</div>
+    <!-- END Header -->
+
+    <!-- Content -->
+    <div id="content" class="colM">
+
+		<div id="content-main">
+{#			<form action="http://127.0.0.1:8000/admin/login/?next=/admin/" method="post" id="login-form"><input type="hidden" name="csrfmiddlewaretoken" value="QyYYgt8A6407gruOWFduUL6696IeR6a6GKscQ28NjQIAegPhE8QHGptQHjvuAVgt">#}
+			  <div class="form-row">
+			    <label class="required" for="id_username">用户名:</label> <input type="text" name="username" autofocus="" required="" id="id_username">
+			  </div>
+			  <div class="form-row">
+			    <label class="required" for="id_password">密码:</label> <br /> <input type="password" name="password" required="" id="id_password">
+			    <input type="hidden" name="next" value="/admin/">
+			  </div>
+			  <div class="form-row">
+			    <label class="required" for="id_password_define">再次确认密码:</label> <br /> <input type="password" name="password" required="" id="id_password_define">
+			    <input type="hidden" name="next" value="/admin/">
+			  </div>
+			  
+			  <div class="submit-row">
+			    <label>&nbsp;</label><input type="submit" value="注册" onclick="register()">
+			  </div>
+
+
+              <div class="submit-row">
+                  <a href="/pgone">
+                  <label>&nbsp;</label><input type="submit" value="返回">
+                  </a>
+			  </div>
+			  
+{#			  <div id="msg" style="color:red;"></div>#}
+			  
+{#			</form>#}
+	
+		</div>
+        <br class="clear">
+    </div>
+    <!-- END Content -->
+
+    <div id="footer"></div>
+</div>
+<!-- END Container -->
+
+</body>
+</html>
+
+
+<script type="text/javascript" src={% static "pgone_django/jquery-3.4.1.js" %}></script>
+<script type="text/javascript">
+{#    function checkpwd(){#}
+{#        var p1 = $("#id_password").val();#}
+{#        var p2 = $("#id_password_define").val();#}
+{#        if(p1 == ""){#}
+{#            alert("请输入密码！");#}
+{#            return false;#}
+{#        }#}
+{#        if(p1 != p2){#}
+            {#document.getElementById("msg").innerHTML = "两次密码不一致";#}
+{#            alert("两次密码不一致！");#}
+{#            return false;#}
+{#        }else{#}
+{#            // 密码一致#}
+{#        }#}
+{#    }#}
+
+     {#function register_judge() {#}
+     {#   var username = $("#id_username").val();#}
+     {#   var password = $("#id_password").val();#}
+     {#   $.ajax({#}
+     {#       url:"/api/home/register",#}
+     {#       type:"POST",#}
+     {#       data:{"username":username,"password":password},#}
+     {#       success:function (data) {#}
+     {#           if(data.code === "0002"){#}
+                    {#window.location.href = "/backend/pgone/register"#}
+     {#               alert("用户不存在，可以注册！");#}
+     {#           }else {#}
+     {#               alert("用户已存在");#}
+     {#           }#}
+     {#       }#}
+     {#   })#}
+    {#    $.ajax({#}
+    {#        url: "/api/home/write_sql",#}
+    {#        type: "POST",#}
+    {#        data: {"username": username, "password": password},#}
+    {#        success:function (data) {#}
+    {#            if(data.code === "0000"){#}
+    {#                window.location.href = "/pgone"#}
+    {#                alert("用户注册！");#}
+    {#            }else {#}
+    {#                alert("用户未注册成功，请稍候再试！");#}
+    {#            }#}
+    {#        }#}
+    {#    })#}
+
+    function register(){
+        var username = $("#id_username").val();
+        var password = $("#id_password").val();
+        var p2 = $("#id_password_define").val();
+        if(password == "" || p2 == ""){
+            alert("请输入密码！");
+            return false;
+        }
+        if(password != p2){
+            {#document.getElementById("msg").innerHTML = "两次密码不一致";#}
+            alert("两次密码不一致！");
+            return false;
+        }
+        else{
+            // 密码一致
+            $.ajax({
+            url: "/api/home/write_sql",
+            type: "POST",
+            data: {"username": username, "password": password},
+            success:function (data) {
+                if(data.code === "0000"){
+                    window.location.href = "/pgone"
+                    alert("用户注册成功！前往登录页面");
+                }else {
+                    alert(data.message);
+                }
+            }
+        })
+        }
+    }
+</script>

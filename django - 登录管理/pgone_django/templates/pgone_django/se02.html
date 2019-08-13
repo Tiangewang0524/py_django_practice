@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <!-- Start book Title -->
+    <head>
+        <!-- head:start -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        {% load static %}
+        <title>数据库配置 | Title</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.9">
+        <meta name="author" content="LGZ">
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="stylesheet" href="../../static/plugins/gitbook-plugin-splitter/splitter.css">
+        <link rel="stylesheet" href="../../static/plugins/gitbook-plugin-toggle-chapters/toggle.css">
+        <link rel="stylesheet" href="../../static/plugins/gitbook-plugin-highlight/website.css">
+        <link rel="stylesheet" href="../../static/plugins/gitbook-plugin-fontsettings/website.css">
+
+        <!-- head:end -->
+    </head>
+    <body>
+        <!-- body:start -->
+
+    <div class="book"
+        data-level="2.2"
+        data-chapter-title="数据库配置"
+        data-filepath="ch02/se02.md"
+        data-basepath=".."
+        data-revision="Fri Mar 08 2019 21:45:32 GMT+0800 (中国标准时间)"
+        data-innerlanguage="">
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+        <li class="chapter " data-level="2">
+                    <a>
+                        <i class="fa fa-check"></i>
+                        AAA
+                    </a>
+            <ul class="articles">
+        <li class="chapter" data-level="2.1">
+                    <a href="/pgone/pgone_django/se01">
+                        <i class="fa fa-check"></i>
+                        相关问题
+                    </a>
+        </li>
+        <li class="chapter active" data-level="2.2" data-path="ch02/se02">
+                    <a href="/pgone/pgone_django/se02">
+                        <i class="fa fa-check"></i>
+                        我发布的
+                    </a>
+        </li>
+            </ul>
+        </li>
+            <li class="divider"></li>
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+{#        <a href="../" >Title</a>#}
+    </h1>
+</div>
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                    <section class="normal" id="section-">
+
+                        <h1 id="22-&#x6570;&#x636E;&#x5E93;&#x914D;&#x7F6E;">2.2 &#x6570;&#x636E;&#x5E93;&#x914D;&#x7F6E;</h1>
+<p>&#x6253;&#x5F00;<code>testdj/settings.py</code>&#x3002;&#x5305;&#x542B;&#x4E86; Django &#x9879;&#x76EE;&#x7684;&#x8BBE;&#x7F6E;&#x90E8;&#x5206;&#x3002;</p>
+<p>&#x5728;&#x914D;&#x7F6E;&#x6570;&#x636E;&#x5E93;&#x4E4B;&#x524D;&#xFF0C;&#x8981;&#x5148;&#x8BBE;&#x7F6E;&#x65F6;&#x533A;&#x548C;&#x7F16;&#x7801;&#xFF1A;</p>
+<pre><code>LANGUAGE_CODE = &apos;zh-Hans&apos;
+TIME_ZONE = &apos;Asia/Shanghai&apos;
+</code></pre><p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x8FD9;&#x4E2A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4F7F;&#x7528; SQLite &#x4F5C;&#x4E3A;&#x6570;&#x636E;&#x5E93;&#x3002;</p>
+<pre><code>DATABASES = {
+    &apos;default&apos;: {
+        &apos;ENGINE&apos;: &apos;django.db.backends.sqlite3&apos;,
+        &apos;NAME&apos;: os.path.join(BASE_DIR, &apos;db.sqlite3&apos;),
+    }
+}
+</code></pre><p>&#x8FD9;&#x5176;&#x4E2D;&#xFF1A;</p>
+<p>ENGINE</p>
+<p>&#x4EE3;&#x8868;&#x4F7F;&#x7528;&#x7684;&#x6570;&#x636E;&#x5E93;&#x540E;&#x7AEF;&#xFF0C;&#x53EF;&#x9009;&#x503C;&#x6709;</p>
+<ul>
+<li><code>&apos;django.db.backends.sqlite3&apos;</code></li>
+<li><code>&apos;django.db.backends.postgresql&apos;</code></li>
+<li><code>&apos;django.db.backends.mysql&apos;</code></li>
+<li><code>&apos;django.db.backends.oracle&apos;</code></li>
+</ul>
+<p>NAME</p>
+<p>&#x6570;&#x636E;&#x5E93;&#x7684;&#x540D;&#x79F0;&#x3002;&#x5982;&#x679C;&#x4F7F;&#x7528;&#x7684;&#x662F; SQLite&#xFF0C;&#x6570;&#x636E;&#x5E93;&#x5C06;&#x662F;&#x4F60;&#x7535;&#x8111;&#x4E0A;&#x7684;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;<code>NAME</code>&#x5E94;&#x8BE5;&#x662F;&#x6B64;&#x6587;&#x4EF6;&#x7684;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#xFF0C;&#x5305;&#x62EC;&#x6587;&#x4EF6;&#x540D;&#x3002;&#x9ED8;&#x8BA4;&#x503C;&#x4E3A;&#xFF1A;os.path.join(BASE_DIR,&apos;db.sqlite3&apos;)&#xFF0C;&#x5C06;&#x4F1A;&#x628A;&#x6570;&#x636E;&#x5E93;&#x6587;&#x4EF6;&#x50A8;&#x5B58;&#x5728;&#x9879;&#x76EE;&#x7684;&#x6839;&#x76EE;&#x5F55;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x4F7F;&#x7528;&#x5176;&#x4ED6;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x9700;&#x8981;&#x5B89;&#x88C5;&#x5408;&#x9002;&#x7684;&#x6570;&#x636E;&#x5E93;&#x7ED1;&#x5B9A;&#x7EC4;&#x4EF6;&#xFF0C;&#x7136;&#x540E;&#x6539;&#x53D8;&#x8BBE;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;<code>DATABASES</code>&#x4E2D;<code>&apos;default&apos;</code>&#x9879;&#x76EE;&#x4E2D;&#x7684;&#x4E00;&#x4E9B;&#x952E;&#x503C;&#xFF0C;&#x4F8B;&#x5982;&#x91C7;&#x7528;MySQL&#x6570;&#x636E;&#x5E93;&#xFF1A;</p>
+<pre><code>DATABASES = {
+    &apos;default&apos;: {
+        &apos;ENGINE&apos;: &apos;django.db.backends.mysql&apos;,
+        &apos;NAME&apos;: &apos;test2&apos;,
+        &apos;USER&apos;: &apos;root&apos;,
+        &apos;PASSWORD&apos;: &apos;12345678&apos;,
+        &apos;HOST&apos;: &apos;localhost&apos;,
+        &apos;PORT&apos;: &apos;3306&apos;,
+    }
+}
+</code></pre><p>&#x5728;&#x5DF2;&#x5B89;&#x88C5;&#x7684;mysql&#x4E2D;&#x521B;&#x5EFA;test2&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x5B57;&#x7B26;&#x96C6;&#x8BBE;&#x7F6E;&#x4E3A;&#xFF1A;UTF-8</p>
+<pre><code>create database test2 DEFAULT CHARSET utf8;
+</code></pre><p>&#x6216;&#x5728;&#x56FE;&#x5F62;&#x754C;&#x9762;&#x521B;&#x5EFA;&#xFF1A;</p>
+<p><img src="../assets/createdb.png" alt=""></p>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script type="text/javascript" src={% static "pgone_django/jquery-3.4.1.js" %}></script>
+<script src="../../static/plugins/gitbook-plugin-splitter/splitter.js"></script>
+<script src="../../static/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
+<script src="../../static/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"disqus":{"shortName":"gitbookuse"},"tbfed-pagefooter":{"copyright":"Copyright","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"splitter":{},"toggle-chapters":{},"highlight":{},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        <!-- body:end -->
+    </body>
+    <!-- End of book Title -->
+</html>

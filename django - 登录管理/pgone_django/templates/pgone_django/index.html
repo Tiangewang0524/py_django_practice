@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href={% static "pgone_django/base.css" %}/>
+    <link rel="stylesheet" type="text/css" href={% static "pgone_django/login.css" %}/>
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href={% static "pgone_django/responsive.css" %}/>
+    <meta name="robots" content="NONE,NOARCHIVE">
+</head>
+
+<body class=" login"
+      data-admin-utc-offset="28800">
+
+<!-- Container -->
+<div id="container">
+    <!-- Header -->
+    <div id="header">
+        <div id="branding">
+            <h1 id="site-name"><a href="/admin/">登录管理</a></h1>
+        </div>
+    </div>
+    <!-- END Header -->
+
+    <!-- Content -->
+    <div id="content" class="colM">
+
+        <div id="content-main">
+
+
+            {#<form action="/api/home/login" method="post" id="login-form"><input type="hidden" name="csrfmiddlewaretoken" value="Q0YeWJFzzYsSYwi3tkd2zTmYtfOUpFyZY3uxeuFsW6ZwtJK2vx7A3kgH9HkN6a0F">#}
+            <div class="form-row">
+
+                <label class="required" for="id_username">用户名:</label> <input type="text" name="username" autofocus
+                                                                              required id="id_username">
+            </div>
+            <div class="form-row">
+
+                <label class="required" for="id_password">密码:</label> <input type="password" name="password" required
+                                                                             id="id_password">
+                <input type="hidden" name="next" value="/admin/">
+            </div>
+
+
+            <div class="submit-row">
+                <a style="margin-left: -50px;height: 37px;">
+                    <input onclick="login()" type="submit" value="登    录">
+                </a>
+                <a href="/pgone/pgone_django/register" style="margin-left: 50px;height: 37px;">
+                    <input type="submit" value="前往注册">
+                </a>
+            </div>
+            {#</form>#}
+
+        </div>
+        <br class="clear">
+    </div>
+    <!-- END Content -->
+
+    <div id="footer"></div>
+</div>
+<!-- END Container -->
+
+</body>
+</html>
+
+<script type="text/javascript" src={% static "pgone_django/jquery-3.4.1.js" %}></script>
+<script type="text/javascript" src={% static "pgone_django/jquery.cookie.js" %}></script>
+
+<script type="text/javascript">
+    function login() {
+        var username = $("#id_username").val();
+        var password = $("#id_password").val();
+        $.ajax({
+            url: "/api/home/login",
+            type: "POST",
+            data: {"username": username, "password": password},
+            success: function (data) {
+                if (data.code == "0002") {
+                    alert("用户不存在，即将跳转到注册页面！")
+                    window.location.href = "/pgone/pgone_django/register"
+                } else {
+                    alert(data.message);
+                    if (data.message == '登陆成功'){
+                        $.cookie("user", data.data, {"path":"/"});
+                        console.log($.cookie("user"));
+                        window.location.href = "/pgone/pgone_django/02index"
+                    }
+                }
+            }
+        })
+    }
+</script>
