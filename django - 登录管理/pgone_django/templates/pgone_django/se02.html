@@ -6,30 +6,41 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         {% load static %}
-        <title>数据库配置 | Title</title>
+        <title>创建应用 | Title</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.9">
         <meta name="author" content="LGZ">
-        
+
         <meta name="HandheldFriendly" content="true"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
-        <link rel="stylesheet" href="../../static/plugins/gitbook-plugin-splitter/splitter.css">
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href={% static "pgone_django/base.css" %}/>
+        <link rel="stylesheet" type="text/css" href={% static "pgone_django/login.css" %}/>
+        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" type="text/css" href={% static "pgone_django/responsive.css" %}/>
+        <meta name="robots" content="NONE,NOARCHIVE">
+{#        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/static/images/apple-touch-icon-precomposed-152.png">#}
+{#        <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon">#}
+{#        <link rel="stylesheet" href="/static/css/style.css">#}
+        <link rel="stylesheet" href={% static "/plugins/gitbook-plugin-splitter/splitter.css" %}/>
         <link rel="stylesheet" href="../../static/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         <link rel="stylesheet" href="../../static/plugins/gitbook-plugin-highlight/website.css">
         <link rel="stylesheet" href="../../static/plugins/gitbook-plugin-fontsettings/website.css">
-
+        <script type="text/javascript" src={% static "pgone_django/jquery-3.4.1.js" %}></script>
+        <script type="text/javascript" src={% static "pgone_django/jquery.cookie.js" %}></script>
+        <script type="text/javascript" src="../../static/js/my_main_se02.js"></script>
         <!-- head:end -->
     </head>
     <body>
         <!-- body:start -->
 
     <div class="book"
-        data-level="2.2"
-        data-chapter-title="数据库配置"
-        data-filepath="ch02/se02.md"
+        data-level="2.1"
+        data-chapter-title="创建应用"
+        data-filepath="ch02/se01.md"
         data-basepath=".."
         data-revision="Fri Mar 08 2019 21:45:32 GMT+0800 (中国标准时间)"
         data-innerlanguage="">
@@ -42,13 +53,13 @@
                         AAA
                     </a>
             <ul class="articles">
-        <li class="chapter" data-level="2.1">
+        <li class="chapter active" data-level="2.1" data-path="ch02/se01">
                     <a href="/pgone/pgone_django/se01">
                         <i class="fa fa-check"></i>
                         相关问题
                     </a>
         </li>
-        <li class="chapter active" data-level="2.2" data-path="ch02/se02">
+        <li class="chapter " data-level="2.2" data-path="ch02/se02">
                     <a href="/pgone/pgone_django/se02">
                         <i class="fa fa-check"></i>
                         我发布的
@@ -60,73 +71,102 @@
         </ul>
     </nav>
 </div>
+<div style="margin-left: 300px;">
+    <table style="width: 800px;">
+        <thead>
+        <td>类型</td>
+        <td>内容</td>
+        <td>发布者</td>
+        <td>发布时间</td>
+        <td>状态</td>
+        <td>解决者</td>
+        <td>解决时间</td>
+        </thead>
+        <tbody id="tbody">
+        </tbody>
+    </table>
+</div>
 
-    <div class="book-body">
-        <div class="body-inner">
-            <div class="book-header" role="navigation">
-    <!-- Actions Left -->
-
-
-    <!-- Title -->
-    <h1>
-        <i class="fa fa-circle-o-notch fa-spin"></i>
+{#    <div class="book-body">#}
+{#        <div class="body-inner">#}
+{#            <div class="book-header" role="navigation">#}
+{#    <!-- Actions Left -->#}
+{#    #}
+{##}
+{#    <!-- Title -->#}
+{#    <h1>#}
+{#        <i class="fa fa-circle-o-notch fa-spin"></i>#}
 {#        <a href="../" >Title</a>#}
-    </h1>
+{#    </h1>#}
+{#</div>#}
+{##}
+{#            <div class="page-wrapper" tabindex="-1" role="main">#}
+{#                <div class="page-inner">#}
+{#                #}
+{#                #}
+{#                    <section class="normal" id="section-">#}
+{#                    #}
+{#                        <h1 id="21-&#x521B;&#x5EFA;&#x5E94;&#x7528;">2.1 &#x521B;&#x5EFA;&#x5E94;&#x7528;</h1>#}
+{#<p>&#x5E94;&#x7528;&#x662F;&#x4E00;&#x4E2A;&#x4E13;&#x95E8;&#x505A;&#x67D0;&#x4EF6;&#x4E8B;&#x7684;&#x7F51;&#x7EDC;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x9879;&#x76EE;&#x53EF;&#x4EE5;&#x5305;&#x542B;&#x5F88;&#x591A;&#x4E2A;&#x5E94;&#x7528;&#x3002;&#x5E94;&#x7528;&#x53EF;&#x4EE5;&#x88AB;&#x5F88;&#x591A;&#x4E2A;&#x9879;&#x76EE;&#x4F7F;&#x7528;&#x3002;</p>#}
+{#<p>&#x5728; Django &#x4E2D;&#xFF0C;&#x6BCF;&#x4E00;&#x4E2A;&#x5E94;&#x7528;&#x90FD;&#x662F;&#x4E00;&#x4E2A; Python &#x5305;&#xFF0C;&#x5E76;&#x4E14;&#x9075;&#x5FAA;&#x7740;&#x76F8;&#x540C;&#x7684;&#x7EA6;&#x5B9A;&#x3002;Django &#x81EA;&#x5E26;&#x4E00;&#x4E2A;&#x5DE5;&#x5177;&#xFF0C;&#x53EF;&#x4EE5;&#x751F;&#x6210;&#x5E94;&#x7528;&#x7684;&#x57FA;&#x7840;&#x76EE;&#x5F55;&#x7ED3;&#x6784;&#x3002;</p>#}
+{#<p>&#x5728;&#x5916;&#x5C42;&#x7684;testdj&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5E94;&#x7528;&#xFF0C;&#x6267;&#x884C;&#x547D;&#x4EE4;&#xFF1A;</p>#}
+{#<pre><code>python manage.py startapp polls#}
+{#</code></pre><p>&#x5C06;&#x521B;&#x5EFA;&#x5982;&#x4E0B;&#x7ED3;&#x6784;&#x7684;&#x76EE;&#x5F55;</p>#}
+{#<pre><code>polls/#}
+{#    __init__.py#}
+{#    admin.py#}
+{#    apps.py#}
+{#    migrations/#}
+{#        __init__.py#}
+{#    models.py#}
+{#    tests.py#}
+{#    views.py#}
+{#</code></pre><p>&#x8FD9;&#x4E2A;&#x76EE;&#x5F55;&#x7ED3;&#x6784;&#x5305;&#x62EC;&#x4E86;&#x6295;&#x7968;&#x5E94;&#x7528;&#x7684;&#x5168;&#x90E8;&#x5185;&#x5BB9;&#x3002;</p>#}
+{#<h2 id="&#x7F16;&#x5199;&#x7B2C;&#x4E00;&#x4E2A;&#x89C6;&#x56FE;">&#x7F16;&#x5199;&#x7B2C;&#x4E00;&#x4E2A;&#x89C6;&#x56FE;</h2>#}
+{#<p>&#x5F00;&#x59CB;&#x7F16;&#x5199;&#x7B2C;&#x4E00;&#x4E2A;&#x89C6;&#x56FE;&#x3002;&#x6253;&#x5F00;<code>polls/views.py</code>&#xFF0C;&#x628A;&#x4E0B;&#x9762;&#x8FD9;&#x4E9B; Python &#x4EE3;&#x7801;&#x8F93;&#x5165;&#x8FDB;&#x53BB;&#xFF1A;</p>#}
+{#<p>polls/views.py</p>#}
+{#<pre><code>from django.http import HttpResponse#}
+{##}
+{#def index(request):#}
+{#    return HttpResponse(&quot;Hello, world. You&apos;re at the polls index.&quot;)#}
+{#</code></pre><p>&#x5728; polls &#x76EE;&#x5F55;&#x91CC;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;<code>urls.py</code>&#x6587;&#x4EF6;&#xFF0C;&#x8F93;&#x5165;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#xFF1A;</p>#}
+{#<pre><code>from django.urls import path#}
+{##}
+{#from . import views#}
+{##}
+{#urlpatterns = [#}
+{#    path(&apos;&apos;, views.index, name=&apos;index&apos;),#}
+{#]#}
+{#</code></pre><p>&#x5728;&#x6839; URLconf &#x6587;&#x4EF6;&#x4E2D;&#x6307;&#x5B9A;&#x6211;&#x4EEC;&#x521B;&#x5EFA;&#x7684;<code>polls.urls</code>&#x6A21;&#x5757;&#x3002;&#x5728;&#x5185;&#x5C42;<code>testdj/urls.py</code>&#x6587;&#x4EF6;&#x7684;<code>urlpatterns</code>&#x5217;&#x8868;&#x91CC;&#x63D2;&#x5165;&#x4E00;&#x4E2A;<code>path()</code>&#xFF0C; &#x5982;&#x4E0B;&#xFF1A;</p>#}
+{#<pre><code>from django.contrib import admin#}
+{#from django.urls import include, path#}
+{##}
+{#urlpatterns = [#}
+{#    path(&apos;polls/&apos;, include(&apos;polls.urls&apos;)),#}
+{#    path(&apos;admin/&apos;, admin.site.urls),#}
+{#]#}
+{#</code></pre><p>&#x51FD;&#x6570;<code>include()</code>&#x5141;&#x8BB8;&#x5F15;&#x7528;&#x5176;&#x5B83; URLconfs&#x3002;&#x6BCF;&#x5F53; Django &#x9047;&#x5230;<code>django.urls.include</code>&#x65F6;&#xFF0C;&#x5B83;&#x4F1A;&#x622A;&#x65AD;&#x4E0E;&#x6B64;&#x9879;&#x5339;&#x914D;&#x7684; URL &#x7684;&#x90E8;&#x5206;&#xFF0C;&#x5E76;&#x5C06;&#x5269;&#x4F59;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x53D1;&#x9001;&#x5230; URLconf &#x4EE5;&#x4F9B;&#x8FDB;&#x4E00;&#x6B65;&#x5904;&#x7406;&#x3002;</p>#}
+{#<p>&#x6D4F;&#x89C8;&#x5668;&#x8BBF;&#x95EE;<a href="http://localhost:8000/polls/" target="_blank">http://localhost:8000/polls/</a>&#xFF0C;&#x5C06;&#x663E;&#x793A;&#x5982;&#x4E0B;&#x5185;&#x5BB9;&#xFF1A;</p>#}
+{#<p><img src="../assets/pollsroot.png" alt=""></p>#}
+{#<h2 id="&#x51FD;&#x6570;path">&#x51FD;&#x6570;path()</h2>#}
+{#<p>&#x5177;&#x6709;&#x56DB;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x4E24;&#x4E2A;&#x5FC5;&#x987B;&#x53C2;&#x6570;&#xFF1A;<code>route</code>&#x548C;<code>view</code>&#xFF0C;&#x4E24;&#x4E2A;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF1A;<code>kwargs</code>&#x548C;<code>name</code>&#x3002;</p>#}
+{#<h3 id="&#x53C2;&#x6570;&#xFF1A;route">&#x53C2;&#x6570;&#xFF1A;<code>route</code></h3>#}
+{#<p><code>route</code>&#x662F;&#x4E00;&#x4E2A;&#x5339;&#x914D; URL &#x7684;&#x51C6;&#x5219;&#xFF08;&#x7C7B;&#x4F3C;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#xFF09;&#x3002;&#x5F53; Django &#x54CD;&#x5E94;&#x4E00;&#x4E2A;&#x8BF7;&#x6C42;&#x65F6;&#xFF0C;&#x5B83;&#x4F1A;&#x4ECE;<code>urlpatterns</code>&#x7684;&#x7B2C;&#x4E00;&#x9879;&#x5F00;&#x59CB;&#xFF0C;&#x6309;&#x987A;&#x5E8F;&#x4F9D;&#x6B21;&#x5339;&#x914D;&#x5217;&#x8868;&#x4E2D;&#x7684;&#x9879;&#xFF0C;&#x76F4;&#x5230;&#x627E;&#x5230;&#x5339;&#x914D;&#x7684;&#x9879;&#x3002;</p>#}
+{#<p>&#x8FD9;&#x4E9B;&#x51C6;&#x5219;&#x4E0D;&#x4F1A;&#x5339;&#x914D; GET &#x548C; POST &#x53C2;&#x6570;&#x6216;&#x57DF;&#x540D;&#x3002;&#x4F8B;&#x5982;&#xFF0C;URLconf &#x5728;&#x5904;&#x7406;&#x8BF7;&#x6C42;<code>https://www.example.com/myapp/</code>&#x65F6;&#xFF0C;&#x5B83;&#x4F1A;&#x5C1D;&#x8BD5;&#x5339;&#x914D;<code>myapp/</code>&#x3002;&#x5904;&#x7406;&#x8BF7;&#x6C42;<code>https://www.example.com/myapp/?page=3</code>&#x65F6;&#xFF0C;&#x4E5F;&#x53EA;&#x4F1A;&#x5C1D;&#x8BD5;&#x5339;&#x914D;<code>myapp/</code>&#x3002;</p>#}
+{#<h3 id="&#x53C2;&#x6570;&#xFF1A;view">&#x53C2;&#x6570;&#xFF1A;<code>view</code></h3>#}
+{#<p>&#x5F53; Django &#x627E;&#x5230;&#x4E86;&#x4E00;&#x4E2A;&#x5339;&#x914D;&#x7684;&#x51C6;&#x5219;&#xFF0C;&#x5C31;&#x4F1A;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;&#x7279;&#x5B9A;&#x7684;&#x89C6;&#x56FE;&#x51FD;&#x6570;&#xFF0C;&#x5E76;&#x4F20;&#x5165;&#x4E00;&#x4E2A;<code>HttpRequest</code>&#x5BF9;&#x8C61;&#x4F5C;&#x4E3A;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x88AB;&#x201C;&#x6355;&#x83B7;&#x201D;&#x7684;&#x53C2;&#x6570;&#x4EE5;&#x5173;&#x952E;&#x5B57;&#x53C2;&#x6570;&#x7684;&#x5F62;&#x5F0F;&#x4F20;&#x5165;&#x3002;</p>#}
+{#                    </section>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{##}
+{#        #}
+{#    </div>#}
 </div>
-            <div class="page-wrapper" tabindex="-1" role="main">
-                <div class="page-inner">
-                    <section class="normal" id="section-">
-
-                        <h1 id="22-&#x6570;&#x636E;&#x5E93;&#x914D;&#x7F6E;">2.2 &#x6570;&#x636E;&#x5E93;&#x914D;&#x7F6E;</h1>
-<p>&#x6253;&#x5F00;<code>testdj/settings.py</code>&#x3002;&#x5305;&#x542B;&#x4E86; Django &#x9879;&#x76EE;&#x7684;&#x8BBE;&#x7F6E;&#x90E8;&#x5206;&#x3002;</p>
-<p>&#x5728;&#x914D;&#x7F6E;&#x6570;&#x636E;&#x5E93;&#x4E4B;&#x524D;&#xFF0C;&#x8981;&#x5148;&#x8BBE;&#x7F6E;&#x65F6;&#x533A;&#x548C;&#x7F16;&#x7801;&#xFF1A;</p>
-<pre><code>LANGUAGE_CODE = &apos;zh-Hans&apos;
-TIME_ZONE = &apos;Asia/Shanghai&apos;
-</code></pre><p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x8FD9;&#x4E2A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4F7F;&#x7528; SQLite &#x4F5C;&#x4E3A;&#x6570;&#x636E;&#x5E93;&#x3002;</p>
-<pre><code>DATABASES = {
-    &apos;default&apos;: {
-        &apos;ENGINE&apos;: &apos;django.db.backends.sqlite3&apos;,
-        &apos;NAME&apos;: os.path.join(BASE_DIR, &apos;db.sqlite3&apos;),
-    }
-}
-</code></pre><p>&#x8FD9;&#x5176;&#x4E2D;&#xFF1A;</p>
-<p>ENGINE</p>
-<p>&#x4EE3;&#x8868;&#x4F7F;&#x7528;&#x7684;&#x6570;&#x636E;&#x5E93;&#x540E;&#x7AEF;&#xFF0C;&#x53EF;&#x9009;&#x503C;&#x6709;</p>
-<ul>
-<li><code>&apos;django.db.backends.sqlite3&apos;</code></li>
-<li><code>&apos;django.db.backends.postgresql&apos;</code></li>
-<li><code>&apos;django.db.backends.mysql&apos;</code></li>
-<li><code>&apos;django.db.backends.oracle&apos;</code></li>
-</ul>
-<p>NAME</p>
-<p>&#x6570;&#x636E;&#x5E93;&#x7684;&#x540D;&#x79F0;&#x3002;&#x5982;&#x679C;&#x4F7F;&#x7528;&#x7684;&#x662F; SQLite&#xFF0C;&#x6570;&#x636E;&#x5E93;&#x5C06;&#x662F;&#x4F60;&#x7535;&#x8111;&#x4E0A;&#x7684;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;<code>NAME</code>&#x5E94;&#x8BE5;&#x662F;&#x6B64;&#x6587;&#x4EF6;&#x7684;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#xFF0C;&#x5305;&#x62EC;&#x6587;&#x4EF6;&#x540D;&#x3002;&#x9ED8;&#x8BA4;&#x503C;&#x4E3A;&#xFF1A;os.path.join(BASE_DIR,&apos;db.sqlite3&apos;)&#xFF0C;&#x5C06;&#x4F1A;&#x628A;&#x6570;&#x636E;&#x5E93;&#x6587;&#x4EF6;&#x50A8;&#x5B58;&#x5728;&#x9879;&#x76EE;&#x7684;&#x6839;&#x76EE;&#x5F55;&#x3002;</p>
-<p>&#x5982;&#x679C;&#x4F7F;&#x7528;&#x5176;&#x4ED6;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x9700;&#x8981;&#x5B89;&#x88C5;&#x5408;&#x9002;&#x7684;&#x6570;&#x636E;&#x5E93;&#x7ED1;&#x5B9A;&#x7EC4;&#x4EF6;&#xFF0C;&#x7136;&#x540E;&#x6539;&#x53D8;&#x8BBE;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;<code>DATABASES</code>&#x4E2D;<code>&apos;default&apos;</code>&#x9879;&#x76EE;&#x4E2D;&#x7684;&#x4E00;&#x4E9B;&#x952E;&#x503C;&#xFF0C;&#x4F8B;&#x5982;&#x91C7;&#x7528;MySQL&#x6570;&#x636E;&#x5E93;&#xFF1A;</p>
-<pre><code>DATABASES = {
-    &apos;default&apos;: {
-        &apos;ENGINE&apos;: &apos;django.db.backends.mysql&apos;,
-        &apos;NAME&apos;: &apos;test2&apos;,
-        &apos;USER&apos;: &apos;root&apos;,
-        &apos;PASSWORD&apos;: &apos;12345678&apos;,
-        &apos;HOST&apos;: &apos;localhost&apos;,
-        &apos;PORT&apos;: &apos;3306&apos;,
-    }
-}
-</code></pre><p>&#x5728;&#x5DF2;&#x5B89;&#x88C5;&#x7684;mysql&#x4E2D;&#x521B;&#x5EFA;test2&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x5B57;&#x7B26;&#x96C6;&#x8BBE;&#x7F6E;&#x4E3A;&#xFF1A;UTF-8</p>
-<pre><code>create database test2 DEFAULT CHARSET utf8;
-</code></pre><p>&#x6216;&#x5728;&#x56FE;&#x5F62;&#x754C;&#x9762;&#x521B;&#x5EFA;&#xFF1A;</p>
-<p><img src="../assets/createdb.png" alt=""></p>
-                    </section>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</div>
-
-<script type="text/javascript" src={% static "pgone_django/jquery-3.4.1.js" %}></script>
 <script src="../../static/plugins/gitbook-plugin-splitter/splitter.js"></script>
 <script src="../../static/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
 <script src="../../static/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+
 <script>
 require(["gitbook"], function(gitbook) {
     var config = {"disqus":{"shortName":"gitbookuse"},"tbfed-pagefooter":{"copyright":"Copyright","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"splitter":{},"toggle-chapters":{},"highlight":{},"fontsettings":{"theme":"white","family":"sans","size":2}};
