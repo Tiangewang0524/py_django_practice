@@ -14,7 +14,7 @@ def index(request):
 class Login(View):
 
     def post(self, request):
-        result = {'code': '0000', 'message': '登陆成功', 'data': 'id'}
+        result = {'code': '0000', 'message': '登陆成功'}
         username = request.POST.get('username')
         password = request.POST.get('password')
         user = User.objects.filter(username=username).first()
@@ -64,11 +64,16 @@ class UserMsg(View):
         data = []
         for item in problems:
             raise_name = User.objects.filter(id=item.raise_user).first().username
+            userid = item.raise_user
             item.raise_user = raise_name
             solve_user = User.objects.filter(id=item.solve_user).first()
             if solve_user:
                 item.solve_user = solve_user.username
-            data.append(model_to_dict(item))
+            # model_to_dict 返回一个字典文件
+            dict_temp = model_to_dict(item)
+            # 向字典文件里添加一个提出问题的用户的id，方便查找相关人的提问
+            dict_temp['raise_user_id'] = userid
+            data.append(dict_temp)
         result['data'] = data
         return HttpResponse(json.dumps(result), content_type='application/json')
 
@@ -85,3 +90,30 @@ class Modify_state(View):
             result['code'] = '0001'
             result['message'] = '修改失败'
         return HttpResponse(json.dumps(result), content_type='application/json')
+
+class Delete_record(View):
+
+    def post(self, request):
+        result = {'code': '0000', 'message': 'success'}
+        pro_id = request.POST.get('pro_id')
+        try:
+            Problem.objects.filter(id=pro_id).delete()
+        except:
+            result['code'] = '0001'
+            result['message'] = '修改失败'
+        return HttpResponse(json.dumps(result), content_type='application/json')
+
+
+class Add_problem(View):
+
+    def post(self, request):
+        result = {'code': '0000', 'message': 'success'}
+        problem = request.POST.get('problem')
+        user_id = request.POST.get('user_id')
+        user = User.objects.get(id=user_id)
+        try:
+            Problem.objects.create(context=problem, type=user.role, raise_user=user_id, raise_time=int(time.time()), state=0)
+        except:
+            result['code'] = '0001'
+            result['message'] = '添加失败'
+        return HttpResponse(content=json.dumps(result), content_type='application/json')

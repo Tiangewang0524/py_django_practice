@@ -20,6 +20,7 @@ $(function(){
                                     "            <td>" + (result.data[i].solve_user ? result.data[i].solve_user : '----') + "</td>\n" +
                                     "            <td>" + (result.data[i].solve_time ? formatDate(result.data[i].solve_time * 1000) : '----') + "</td>\n" +
                                     "            <td><button onclick='modify_state(" + result.data[i].id + ")'>修改</button></td>\n" +
+                                    "            <td><button onclick='delete_record(" + result.data[i].id + ")'>删除</button></td>\n" +
                                     "        </tr>"
                 }
                 $("#tbody").html(neirong);
@@ -48,7 +49,37 @@ function modify_state(pro_id) {
                 if (result.code == "0000") {
                     alert("修改成功！");
                     window.location.reload()
-                    // window.location.href = "/pgone/pgone_django/register"
+                } else {
+                    alert(result.message);
+                }
+            }
+        })
+}
+function delete_record(pro_id){
+    $.ajax({
+            url: "/api/home/delete_record",
+            type: "POST",
+            data: {"pro_id": pro_id},
+            success: function (result) {
+                if (result.code == "0000") {
+                    alert("修改成功！");
+                    window.location.reload()
+                } else {
+                    alert(result.message);
+                }
+            }
+        })
+}
+function add_problem() {
+    var problem = $("#context").val();
+    $.ajax({
+            url: "/api/home/add_problem",
+            type: "POST",
+            data: {'user_id': user, "problem":problem},
+            success: function (result) {
+                if (result.code == "0000") {
+                    alert("添加问题成功！");
+                    window.location.reload()
                 } else {
                     alert(result.message);
                 }

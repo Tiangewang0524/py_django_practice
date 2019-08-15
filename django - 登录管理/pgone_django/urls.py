@@ -9,4 +9,6 @@ urlpatterns = [
     path('write_sql', view_register.as_view(), name='register'),
     path('get_problems', UserMsg.as_view()),
     path('modify_state', Modify_state.as_view()),
+    path('delete_record', Delete_record.as_view()),
+    path('add_problem', Add_problem.as_view()),
 ]
