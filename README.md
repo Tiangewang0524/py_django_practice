@@ -20,3 +20,9 @@ download from: https://jquery.com/download/
 
 ajax
 
+### spider pre:
+
+BeautifulSoup
+urllib
+selenium
+xpath(lxml)
