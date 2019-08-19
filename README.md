@@ -30,3 +30,5 @@ selenium
 
 xpath(lxml)
 
+pymongo
+
