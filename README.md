@@ -32,3 +32,8 @@ xpath(lxml)
 
 pymongo
 
+scrapy
+
+shell script: scrapy crawl nba_spider 
+-o nba.csv to save the NBA player data into a csv file
+-o nba.json to save the NBA player data into a json file
