@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tradingCenter_buyer</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="../static/css/tradingCenter_buyer.css">
+    <link rel="stylesheet" href="../static/css/reset.css">
+    <script src="../static/js/jquery-1.12.4.js"></script>
+    <script>
+            if (/(Android|iPhone|iPad|iPod)/i.test(navigator.userAgent)) {
+                console.log("yd");
+                var pageWidth = window.innerWidth; //浏览器视口
+                console.log(pageWidth);
+                document.write('<style>html{font-size:' + pageWidth + 'px}</style>')
+            } else {
+                console.log("pc");
+                var pageWidth = window.innerWidth*0.6;
+                console.log(pageWidth);
+                document.write('<style>html{font-size:' + 500+ 'px}</style>')
+
+            };
+            window.onload = function () {
+            var td = $("td");
+            for (var i=0;i<td.length;i++) {
+                if (td.eq(i).text()=="等待匹配") {
+                    td.eq(i).css("color","#FCA755")
+                }
+            }
+                $("#choose-buy").click(function () {
+                    console.log(1)
+                    $("#choose-buy").removeClass("choose2");
+                    $("#choose-buy").addClass("choose1");
+                    $("#choose-sale").addClass("choose2");
+                    $("#choose-sale").removeClass("choose1");
+                    $("#buy").css("display","block");
+                    $("#sale").css("display","none");
+                });
+                $("#choose-sale").click(function () {
+                    console.log(2)
+                    $("#choose-sale").removeClass("choose2");
+                    $("#choose-sale").addClass("choose1");
+                    $("#choose-buy").addClass("choose2");
+                    $("#choose-buy").removeClass("choose1");
+                    $("#sale").css("display","block");
+                    $("#buy").css("display","none");
+                });
+        }
+
+
+    </script>
+</head>
+<body style="background-color: #F6F6F6;">
+<div id="head">
+    <img src="../static/img/back_defult.png" alt=""> <span>交易中心</span>
+</div>
+<div id="history">
+    <div id="history-w" class="w">发布信息</div>
+    <div id="history-table">
+        <table>
+            <tr>
+                <th>金额</th>
+                <th>买|卖</th>
+                <th>状态</th>
+                <th>发布时间</th>
+            </tr>
+            <tr>
+                <td>1000</td>
+                <td>买</td>
+                <td>完成匹配</td>
+                <td>2019-3-24</td>
+            </tr>
+            <tr>
+                <td>1000</td>
+                <td>卖</td>
+                <td>等待匹配</td>
+                <td>2019-3-24</td>
+            </tr>
+            <tr>
+                <td>1000</td>
+                <td>买</td>
+                <td>完成匹配</td>
+                <td>2019-3-24</td>
+            </tr>
+            <tr>
+                <td>1000</td>
+                <td>卖</td>
+                <td>等待匹配</td>
+                <td>2019-3-24</td>
+            </tr>
+            <tr>
+                <td>1000</td>
+                <td>买</td>
+                <td>完成匹配</td>
+                <td>2019-3-24</td>
+            </tr>
+            <tr>
+                <td>1000</td>
+                <td>卖</td>
+                <td>等待匹配</td>
+                <td>2019-3-24</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div id="choose">
+    <div id="choose-w" class="w">匹配订单</div>
+    <div id="choose-btn">
+        <button class="choose1" id="choose-buy">我是买家</button>
+        <button class="choose2" id="choose-sale">我是卖家</button>
+    </div>
+</div>
+<div id="buy">
+<div class="buy">
+    <div class="buy-table">
+<table>
+    <tr>
+        <th>金额</th>
+        <th>3000</th>
+    </tr>
+    <tr>
+        <td>卖方姓名</td>
+        <td>张三</td>
+    </tr>
+    <tr>
+        <td>卖方手机号</td>
+        <td>18112903056</td>
+    </tr>
+    <tr>
+        <td>银行卡号</td>
+        <td>777777 8932344876521</td>
+    </tr>
+    <tr>
+        <td>支付宝</td>
+        <td>18112903056</td>
+    </tr>
+    <tr>
+        <td>推荐人姓名</td>
+        <td>李四</td>
+    </tr>
+    <tr>
+        <td>推荐人手机号</td>
+        <td>17361980025</td>
+    </tr>
+    <tr>
+        <td>匹配时间</td>
+        <td>2019-3-30 09:30:12</td>
+    </tr>
+</table>
+    <img src="../static/img/btn_upload@3x.png" alt="" class="btn1">
+</div>
+</div>
+<div class="buy">
+    <div class="buy-table">
+        <table>
+            <tr>
+                <th>金额</th>
+                <th>3000</th>
+            </tr>
+            <tr>
+                <td>卖方姓名</td>
+                <td>张三</td>
+            </tr>
+            <tr>
+                <td>卖方手机号</td>
+                <td>18112903056</td>
+            </tr>
+            <tr>
+                <td>银行卡号</td>
+                <td>777777 8932344876521</td>
+            </tr>
+            <tr>
+                <td>支付宝</td>
+                <td>18112903056</td>
+            </tr>
+            <tr>
+                <td>推荐人姓名</td>
+                <td>李四</td>
+            </tr>
+            <tr>
+                <td>推荐人手机号</td>
+                <td>17361980025</td>
+            </tr>
+            <tr>
+                <td>匹配时间</td>
+                <td>2019-3-30 09:30:12</td>
+            </tr>
+        </table>
+        <img src="../static/img/btn_upload@3x.png" alt="" class="btn1">
+    </div>
+</div>
+<div class="buy">
+    <div class="buy-table">
+        <table>
+            <tr>
+                <th>金额</th>
+                <th>3000</th>
+            </tr>
+            <tr>
+                <td>卖方姓名</td>
+                <td>张三</td>
+            </tr>
+            <tr>
+                <td>卖方手机号</td>
+                <td>18112903056</td>
+            </tr>
+            <tr>
+                <td>银行卡号</td>
+                <td>777777 8932344876521</td>
+            </tr>
+            <tr>
+                <td>支付宝</td>
+                <td>18112903056</td>
+            </tr>
+            <tr>
+                <td>推荐人姓名</td>
+                <td>李四</td>
+            </tr>
+            <tr>
+                <td>推荐人手机号</td>
+                <td>17361980025</td>
+            </tr>
+            <tr>
+                <td>匹配时间</td>
+                <td>2019-3-30 09:30:12</td>
+            </tr>
+        </table>
+        <img src="../static/img/btn_upload@3x.png" alt="" class="btn1">
+    </div>
+</div>
+<div class="buy">
+    <div class="buy-table">
+        <table>
+            <tr>
+                <th>金额</th>
+                <th>3000</th>
+            </tr>
+            <tr>
+                <td>卖方姓名</td>
+                <td>张三</td>
+            </tr>
+            <tr>
+                <td>卖方手机号</td>
+                <td>18112903056</td>
+            </tr>
+            <tr>
+                <td>银行卡号</td>
+                <td>777777 8932344876521</td>
+            </tr>
+            <tr>
+                <td>支付宝</td>
+                <td>18112903056</td>
+            </tr>
+            <tr>
+                <td>推荐人姓名</td>
+                <td>李四</td>
+            </tr>
+            <tr>
+                <td>推荐人手机号</td>
+                <td>17361980025</td>
+            </tr>
+            <tr>
+                <td>匹配时间</td>
+                <td>2019-3-30 09:30:12</td>
+            </tr>
+        </table>
+        <img src="../static/img/btn_upload@3x.png" alt="" class="btn1">
+    </div>
+</div>
+</div>
+<div id="sale" style="display: none">
+    <div class="buy">
+        <div class="buy-table">
+            <table>
+                <tr>
+                    <th>金额</th>
+                    <th>3000</th>
+                </tr>
+                <tr>
+                    <td>买方姓名</td>
+                    <td>张三</td>
+                </tr>
+                <tr>
+                    <td>买方手机号</td>
+                    <td>18112903056</td>
+                </tr>
+                <tr>
+                    <td>推荐人手机号</td>
+                    <td>17361980025</td>
+                </tr>
+                <tr>
+                    <td>匹配时间</td>
+                    <td>2019-3-30 09:30:12</td>
+                </tr>
+            </table>
+            <img src="../static/img/btn_checkPhoto@3x.png" alt="" class="btn2">
+            <img src="../static/img/btn_firmOrder@3x.png" alt="" class="btn2">
+        </div>
+    </div>
+    <div class="buy">
+        <div class="buy-table">
+            <table>
+                <tr>
+                    <th>金额</th>
+                    <th>3000</th>
+                </tr>
+                <tr>
+                    <td>买方姓名</td>
+                    <td>张三</td>
+                </tr>
+                <tr>
+                    <td>买方手机号</td>
+                    <td>18112903056</td>
+                </tr>
+                <tr>
+                    <td>推荐人手机号</td>
+                    <td>17361980025</td>
+                </tr>
+                <tr>
+                    <td>匹配时间</td>
+                    <td>2019-3-30 09:30:12</td>
+                </tr>
+            </table>
+            <img src="../static/img/btn_checkPhoto@3x.png" alt="" class="btn2">
+            <img src="../static/img/btn_firmOrder@3x.png" alt="" class="btn2">
+        </div>
+    </div>
+    <div class="buy">
+        <div class="buy-table">
+            <table>
+                <tr>
+                    <th>金额</th>
+                    <th>3000</th>
+                </tr>
+                <tr>
+                    <td>买方姓名</td>
+                    <td>张三</td>
+                </tr>
+                <tr>
+                    <td>买方手机号</td>
+                    <td>18112903056</td>
+                </tr>
+                <tr>
+                    <td>推荐人手机号</td>
+                    <td>17361980025</td>
+                </tr>
+                <tr>
+                    <td>匹配时间</td>
+                    <td>2019-3-30 09:30:12</td>
+                </tr>
+            </table>
+            <img src="../static/img/btn_checkPhoto@3x.png" alt="" class="btn2">
+            <img src="../static/img/btn_firmOrder@3x.png" alt="" class="btn2">
+        </div>
+    </div>
+    <div class="buy">
+        <div class="buy-table">
+            <table>
+                <tr>
+                    <th>金额</th>
+                    <th>3000</th>
+                </tr>
+                <tr>
+                    <td>买方姓名</td>
+                    <td>张三</td>
+                </tr>
+                <tr>
+                    <td>买方手机号</td>
+                    <td>18112903056</td>
+                </tr>
+                <tr>
+                    <td>推荐人手机号</td>
+                    <td>17361980025</td>
+                </tr>
+                <tr>
+                    <td>匹配时间</td>
+                    <td>2019-3-30 09:30:12</td>
+                </tr>
+            </table>
+            <img src="../static/img/btn_checkPhoto@3x.png" alt="" class="btn2">
+            <img src="../static/img/btn_firmOrder@3x.png" alt="" class="btn2">
+        </div>
+    </div>
+</div>
+</body>
+</html>

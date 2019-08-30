@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>transfer_defult</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="../static/css/transfer_defult.css">
+    <link rel="stylesheet" href="../static/css/reset.css">
+    <script src="../static/js/jquery-1.12.4.js"></script>
+    <script>
+        if (/(Android|iPhone|iPad|iPod)/i.test(navigator.userAgent)) {
+            console.log("yd");
+            var pageWidth = window.innerWidth; //浏览器视口
+            console.log(pageWidth);
+            document.write('<style>html{font-size:' + pageWidth + 'px}</style>')
+        } else {
+            console.log("pc");
+            var pageWidth = window.innerWidth*0.6;
+            console.log(pageWidth);
+            document.write('<style>html{font-size:' + 500+ 'px}</style>')
+        };
+
+
+
+    </script>
+</head>
+<body>
+<div id="head">
+    <div id="head-p"><img src="../static/img/back_defult.png" alt=""></div>
+    <div id="head-w">家园币转账</div>
+    <div id="logo"></div>
+    <div id="account">18905175752</div>
+    <div id="fc"><span>家园币:</span><span id="fc-count">2000</span></div>
+</div>
+<div id="mid">
+    <div id="zh"class="setc">
+        <img src="../static/img/login_icon_user_pre@2x.png" alt="">
+        <span>对方账户</span>
+        <input type="text" placeholder="请输入对方账户">
+        <img src="../static/img/login_1@2x.png" alt="" style="display: none" id="one">
+    </div>
+    <div id="je"class="setc">
+        <img src="../static/img/icon_money.png" alt="">
+        <span>对方账户</span>
+        <input type="tel" placeholder="请确认您家园币的转账数量" oninput="value=value.replace(/[^\d]/g,'')">
+        <img src="../static/img/login_1@2x.png" alt="" style="display: none" id="two">
+    </div>
+    <div id="psd" class="setc">
+        <img src="../static/img/icon_password_pre.png" alt="">
+        <span>对方账户</span>
+        <input type="password" placeholder="输入交易密码">
+        <img src="../static/img/login_1@2x.png" alt="" style="display: none" id="thr">
+    </div>
+</div>
+<div id="btn">
+    <a href="#"><div id="btn1">注册</div></a>
+    <a href="#"><div id="btn2" style="margin-top: 0.05rem;border:1px solid rgba(6,134,239,1);background-color: #fff;color: #0686EF">取消</div></a>
+</div>
+<script>
+    var inp = document.querySelectorAll("input")
+    inp[0].onchange = function () {
+        document.querySelector("#one").style.display = "block";
+    }
+    inp[1].onchange = function () {
+        document.querySelector("#two").style.display = "block";
+    }
+    inp[2].onchange = function () {
+        document.querySelector("#thr").style.display = "block";
+    }
+    document.querySelector("#one").onclick = function () {
+        inp[0].value = ""
+        document.querySelector("#one").style.display = "none";
+
+    }
+    document.querySelector("#two").onclick = function () {
+        inp[1].value = ""
+        document.querySelector("#two").style.display = "none";
+
+    }
+    document.querySelector("#thr").onclick = function () {
+        inp[2].value = ""
+        document.querySelector("#thr").style.display = "none";
+
+    }
+</script>
+</body>
+</html>

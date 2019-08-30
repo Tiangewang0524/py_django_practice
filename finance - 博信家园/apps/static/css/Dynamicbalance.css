@@ -1,0 +1,61 @@
+html,body{
+    width:100%;
+    height:100%
+}
+#head {
+    width: 100%;
+    height:0.1rem;
+    background:rgba(255,255,255,1);
+    font-size:17px;
+    font-family:PingFang-SC-Bold;
+    font-weight:bold;
+    color:rgba(51,51,51,1);
+    line-height: 0.1rem;
+    text-align: center;
+}
+#head img {
+    width: 0.06rem;
+    height: 0.06rem;
+    position: absolute;
+    left: 0.04rem;
+    top: 0.02rem;
+}
+#table-box {
+    width: 0.91rem;
+    margin: 0.04rem auto 0;
+    background:rgba(255,255,255,1);
+    border-radius:8px;
+    padding-bottom: 15px;
+}
+#table-box table {
+    margin: auto;
+    background-color: #fff;
+}
+#table-box th {
+    width: 0.2rem;
+    height: 0.11rem;
+    text-align: center;
+    border-bottom: 1px solid #8A8A8A;
+}
+#table-box th:first-child {
+    width: 0.35rem;
+    text-align: left;
+}
+#table-box th:last-child {
+    text-align: right;
+}
+#table-box td:first-child {
+    text-align: left;
+}
+#table-box td:last-child {
+    text-align: right;
+}
+#table-box td {
+    width: 0.25rem;
+    height: 0.07rem;
+    text-align: center;
+
+}
+#table-box tr:nth-child(even) {
+    background:rgba(180,211,236,0.1);
+}

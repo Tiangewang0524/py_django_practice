@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sale</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="../static/css/sale.css">
+    <link rel="stylesheet" href="../static/css/reset.css">
+    <script src="../static/js/jquery-1.12.4.js"></script>
+    <script>
+        if (/(Android|iPhone|iPad|iPod)/i.test(navigator.userAgent)) {
+            console.log("yd");
+            var pageWidth = window.innerWidth; //浏览器视口
+            console.log(pageWidth);
+            document.write('<style>html{font-size:' + pageWidth + 'px}</style>')
+        } else {
+            console.log("pc");
+            var pageWidth = window.innerWidth*0.6;
+            console.log(pageWidth);
+            document.write('<style>html{font-size:' + 500+ 'px}</style>')
+        };
+    </script>
+</head>
+<body style="background-color: #F1F1F1;">
+<div id="head">
+    <img src="../static/img/back_defult.png" alt=""> <span>买入</span>
+</div>
+<div id="mid">
+    <div class="mid-choose">
+        <div id="balance-j" class="type1" style="margin-left: 0.005rem;border-radius:0.02rem 0rem 0rem 0rem;">静态余额</div>
+        <div id="balance-d" class="type2" style="border-radius: 0rem 0.02rem 0rem 0rem;">动态余额</div>
+    </div>
+    <div id="sale-w">
+        出售数量
+    </div>
+    <div id="sale-j" class="input-style">
+        <input type="tel" oninput="value=value.replace(/[^\d]/g,'')" placeholder="出售数量需为100的整数倍">
+    </div>
+    <div id="sale-d" class="input-style" style="display: none">
+        <input type="tel" oninput="value=value.replace(/[^\d]/g,'')" placeholder="出售数量需为500的整数倍">
+    </div>
+    <div id="psd-buy">交易密码</div>
+    <div id="psd-inp-box">
+        <input type="tel" maxlength="6" class="real-ipt">
+        <div class="surface-ipts">
+            <div class="surface-ipt">
+                <input type="password"disabled="true" style="margin-left: 0.06rem">
+                <input type="password" disabled="true" >
+                <input type="password" disabled="true">
+                <input type="password" disabled="true">
+                <input type="password" disabled="true">
+                <input type="password" disabled="true">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="btn">
+    <div>确认</div>
+    <div style="border:1px solid rgba(6,134,239,1);color:rgba(6,134,239,1);background-color: #fff; margin-top: 0.05rem">取消</div>
+</div>
+<span class="false" id="100">请输入100的倍数</span>
+<span class="false" id="500">请输入500的倍数</span>
+<script>
+    var pwd = "";
+    var len = 0;
+    // type=tel input框
+    var $inputs = $(".surface-ipt input");
+    $(".real-ipt").on("input", function () {
+        if (!$(this).val()) {   //无值
+        }
+        if (/^[0-9]*$/g.test($(this).val())) {  //有值且只能是数字（正则）
+            pwd = $(this).val().trim();
+            len = pwd.length;
+            for (var i in pwd) {
+                $inputs.eq(i).val(pwd[i]);
+            }
+            $inputs.each(function () {  //将有值的当前input 后面的所有input清空
+                var index = $(this).index();
+                if (index >= len) {
+                    $(this).val("");
+                }
+            })
+            if (len === 6) {
+                //执行付款操作
+            }
+        } else {    //清除val中的非数字，返回纯number的value
+            var arr = $(this).val().match(/\d/g);
+            try {
+                $(this).val($(this).val().slice(0,$(this).val().lastIndexOf(arr[arr.length-1])+1));
+            } catch(e) {
+                $(this).val("");
+            }
+        }
+        console.log("password:" + pwd);
+    });
+
+</script>
+<script>
+    $("#balance-j").click(function () {
+        $("#balance-j").addClass("type1");
+        $("#balance-j").removeClass("type2");
+        $("#balance-d").removeClass("type1");
+        $("#balance-d").addClass("type2");
+        $("#sale-j").css("display","block");
+        $("#sale-d").css("display","none");
+        $("#sale-d input").val("");
+        $("#100").css("display","none");
+        $("#500").css("display","none");
+    })
+    $("#balance-d").click(function () {
+        $("#balance-d").addClass("type1");
+        $("#balance-d").removeClass("type2");
+        $("#balance-j").removeClass("type1");
+        $("#balance-j").addClass("type2");
+        $("#sale-j").css("display","none");
+        $("#sale-d").css("display","block");
+        $("#sale-j input").val("");
+        $("#100").css("display","none");
+        $("#500").css("display","none");
+    })
+    $("#sale-j input").blur(function() {
+        if (($("#sale-j input").val())%100!==0&&($("#sale-j input").val())!==""){
+            $("#100").css("display","block");
+            $("#500").css("display","none");
+        }else {
+            $("#100").css("display","none");
+            $("#500").css("display","none");
+        }
+    })
+    $("#sale-d input").blur(function() {
+        if (($("#sale-d input").val())%500!==0&&($("#sale-d input").val())!==""){
+            $("#500").css("display","block");
+            $("#100").css("display","none");
+        }else {
+            $("#100").css("display","none");
+            $("#500").css("display","none");
+        }
+    })
+</script>
+</body>
+</html>

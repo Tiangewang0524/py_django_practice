@@ -1,0 +1,158 @@
+html,body{
+    width:100%;
+    height:100%
+}
+#head {
+    width: 100%;
+    height:0.1rem;
+    background:rgba(255,255,255,1);
+    font-size:17px;
+    font-family:PingFang-SC-Bold;
+    font-weight:bold;
+    color:rgba(51,51,51,1);
+    line-height: 0.1rem;
+    text-align: center;
+}
+#head img {
+    width: 0.06rem;
+    height: 0.06rem;
+    position: absolute;
+    left: 0.04rem;
+    top: 0.02rem;
+}
+#mid {
+    width:0.91rem;
+    height:0.76rem;
+    background:rgba(255,255,255,1);
+    border-radius:0.02rem;
+    margin: 0.04rem auto 0;
+    position: relative;
+}
+
+.mid-choose div {
+    width: 0.45rem;
+    height:0.13rem;
+    float: left;
+    font-size:0.04rem;
+    font-family:PingFang-SC-Medium;
+    font-weight:500;
+    line-height:0.13rem;
+    text-align: center;
+}
+.type1 {
+    background:rgba(6,134,239,1);
+    color:rgba(255,255,255,1);
+}
+.type2 {
+    color:rgba(6,134,239,1);
+}
+#sale-w {
+    width:0.2rem;
+    height:0.05rem;
+    font-size:0.04rem;
+    font-family:PingFang-SC-Regular;
+    font-weight:400;
+    color:rgba(51,51,51,1);
+    line-height:0.05rem;
+    position: absolute;
+    left: 0.02rem;
+    top: 0.2rem;
+}
+#sale-d input {
+    width:0.79rem;
+    height:0.12rem;
+    position: absolute;
+    left: 0.03rem;
+    top: 0.3rem;
+    border: 0;
+    outline: 0;
+    border-bottom: 1px solid #F1F1F1;
+    font-size:0.05rem ;
+}
+#sale-j input {
+    width:0.79rem;
+    height:0.12rem;
+    position: absolute;
+    left: 0.03rem;
+    top: 0.3rem;
+    border: 0;
+    outline: 0;
+    border-bottom: 1px solid #F1F1F1;
+    font-size:0.05rem ;
+}
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+    font-family:PingFang-SC-Regular;
+    color: #B2B2B2;
+    font-size: 0.03rem;
+    letter-spacing: 3px;
+}
+#psd-buy {
+    width:0.2rem;
+    height:0.05rem;
+    font-size:0.04rem;
+    font-family:PingFang-SC-Regular;
+    font-weight:400;
+    color:rgba(51,51,51,1);
+    line-height:0.05rem;
+    position: absolute;
+    left: 0.02rem;
+    top: 0.45rem;
+}
+#psd-inp-box {
+    position: absolute;
+    left: -0.02rem;
+    top: 0.5rem;
+}
+.surface-ipt input {
+    background-color: #F1F1F1;
+    margin-left: 0.02rem;
+    border: 1px solid #333;
+    font-size: 0.04rem;
+    text-align: center;
+    width:0.1rem;
+    height:0.12rem;
+    background:rgba(241,241,241,1);
+    box-shadow:0rem 0rem 0.02rem 0rem rgba(5,66,117,0.49);
+    border-radius:0.02rem;
+}
+.real-ipt {
+    position: absolute;
+    width:0.85rem;
+    height:0.15rem;
+    left: 0.05rem;
+    background: rgba(255,255,255,0);
+    border: 0;
+    outline: 0;
+    opacity: 0;
+    z-index: 2;
+}
+#psd-inp-box {
+    width:0.91rem;
+    height:0.15rem;
+    margin: 0.05rem auto 0;
+}
+#btn div {
+    width:0.91rem;
+    height:0.13rem;
+    background:rgba(6,134,239,1);
+    border-radius:0.02rem;
+    margin: 0.1rem auto 0;
+    text-align: center;
+    font-size:0.05rem;
+    font-family:PingFang-SC-Regular;
+    font-weight:400;
+    color:rgba(255,255,255,1);
+    line-height:0.13rem;
+    letter-spacing:2px;
+}
+.false {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    color: #D0021B;
+    font-size:0.02rem;
+    font-family:PingFang-SC-Regular;
+    font-weight:400;
+    color:rgba(208,2,27,1);
+    display: none;
+}

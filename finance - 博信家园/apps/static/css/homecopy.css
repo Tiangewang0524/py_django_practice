@@ -1,0 +1,170 @@
+#bg {
+    width:1rem;
+    height:0.42rem;
+    background: url("../img/home_bg.png");
+    background-size: 100%;
+    margin: 0 auto;
+    padding-top: 0.1rem;
+}
+#bg div {
+    width:0.3rem;
+    height:0.12rem;
+    font-size:0.05rem;
+    font-family:PingFang-SC-Bold;
+    font-weight:bold;
+    color:rgba(255,255,255,1);
+    line-height:0.12rem;
+    margin: 0 auto;
+    text-align: center;
+}
+#logo-box {
+    width:0.91rem;
+    height:0.5rem;
+    background:rgba(255,255,255,1);
+    border-radius:0.02rem;
+    margin: -0.3rem auto;
+    position: relative;
+}
+#logo {
+    width: 0.18rem;
+    height: 0.18rem;
+    background: url("../img/login_logo@2x.png");
+    background-size: 100%;
+    position: absolute;
+    left: 0.088rem;
+    top: 0.128rem;
+}
+#account {
+    width:0.41rem;
+    height:0.07rem;
+    font-size:0.05rem;
+    font-family:PingFang-SC-Bold;
+    font-weight:bold;
+    color:rgba(0,0,0,1);
+    line-height:0.07rem;
+    position: absolute;
+    left: 0.34rem;
+    top: 0.13rem;
+}
+#thank, #welcome{
+    width:0.4rem;
+    height:0.05rem;
+    font-size:0.025rem;
+    font-family:PingFang-SC-Regular;
+    font-weight:700;
+    color:rgba(138,138,138,1);
+    line-height:0.05rem;
+    position: absolute;
+    left: 0.34rem;
+    top: 0.2rem;
+}
+#act {
+    width: 0.4rem;
+    height: 0.053rem;
+    position: absolute;
+    top: 0.27rem;
+    left: 0.34rem;
+    line-height: 0.053rem;
+    color: #0686EF;
+}
+#state {
+    width:0.15rem;
+    height:0.04rem;
+    font-size:0.02rem;
+    font-family:PingFang-SC-Regular;
+    font-weight:400;
+    color:rgba(6,134,239,1);
+    line-height:0.04rem;
+    position: absolute;
+    left: 0.73rem;
+    top: 0.144rem;
+}
+#setting {
+    position: absolute;
+    right: 0.042rem;
+    top: 0.042rem;
+}
+#setting img {
+    width: 0.042rem;
+    height: 0.042rem;
+}
+#buy-sale-p {
+    width:0.91rem;
+    height:0.24rem;
+    background:rgba(255,255,255,1);
+    border-radius:0.02rem;
+    margin: 0.35rem auto 0;
+}
+#buy-sale-p  img {
+    height: 100%;
+    width: 50%;
+    float: left;
+}
+#information {
+    width:0.91rem;
+    height:0.65rem;
+    border-radius:0.02rem;
+    background:rgba(255,255,255,1);
+    margin: 0.05rem auto 0;
+}
+.settopbox {
+    width:0.44rem;
+    height:0.3rem;
+    display: inline-block;
+}
+.settop {
+    margin-top: 0.02rem;
+}
+.settopbox div img {
+    width:0.04rem;
+    height:0.04rem;
+}
+.settopbox div {
+    margin: 0.02rem auto 0 ;
+    text-align: center;
+}
+.settopbox div:nth-child(1) {
+    font-size:0.04rem;
+    font-family:PingFang-SC-Regular;
+    font-weight:400;
+    color:rgba(138,138,138,1);
+}
+.settopbox div:nth-child(2) {
+    font-size:0.06rem;
+    font-family:PingFang-SC-Bold;
+    font-weight:bold;
+    color:rgba(51,51,51,1);
+}
+.settopbox div span {
+    font-size:0.03rem;
+    font-family:PingFang-SC-Medium;
+    font-weight:500;
+    color:rgba(6,134,239,1);
+}
+#bottom {
+    width:0.91rem;
+    height:0.3rem;
+    background:rgba(255,255,255,1);
+    border-radius:0.02rem;
+    margin: 0.05rem auto 0.05rem;
+}
+#bottom div {
+    width: 100%;
+    height: 50%;
+
+}
+#bottom img {
+    width: 0.06rem;
+    height: 0.06rem;
+}
+#bottom span {
+    display: inline-block;
+    margin-left: 0.05rem;
+    width:0.17rem;
+    height:0.15rem;
+    line-height: 0.15rem;
+    font-size:0.04rem;
+    font-family:PingFang-SC-Medium;
+    font-weight:500;
+    color:rgba(51,51,51,1);
+}

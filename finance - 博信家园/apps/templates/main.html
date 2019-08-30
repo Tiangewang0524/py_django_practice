@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>博信家园-用户主页</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="../static/css/homecopy.css">
+    <link rel="stylesheet" href="../static/css/reset.css">
+    <script src="../static/js/jquery-1.12.4.js"></script>
+    <script src="../static/js/jquery.cookie.js"></script>
+    <script src="../static/js/main.js"></script>
+    <script>
+        if (/(Android|iPhone|iPad|iPod)/i.test(navigator.userAgent)) {
+            console.log("yd");
+            var pageWidth = window.innerWidth; //浏览器视口
+            console.log(pageWidth);
+            document.write('<style>html{font-size:' + pageWidth + 'px}</style>')
+        } else {
+            console.log("pc");
+            var pageWidth = window.innerWidth*0.6;
+            console.log(pageWidth);
+            document.write('<style>html{font-size:' + 500+ 'px}</style>')
+        };
+
+    </script>
+
+</head>
+<body style="background-color: #F6F6F6;">
+<div id="bg">
+    <div>博信家园</div>
+</div>
+<div id="logo-box">
+    <div id="logo"></div>
+    <div id="account"></div>
+{#    <div id="thank">博信家园 感谢有你！</div>#}
+    <div id="welcome"></div>
+    <a href="#"><div id="act">
+        <img src="../static/img/icon_into.png" alt="" style="width: 0.053rem;height: 0.053rem;">
+        <span><a href="activate">立即激活账号</a></span>
+    </div></a>
+    <div id="state"></div>
+    <a href="#"><div id="setting">
+        <img src="../static/img/icon_setting@3x.png" alt="">
+    </div></a>
+</div>
+<div id="buy-sale-p">
+    <img src="../static/img/home_icon_buy.png" alt="">
+    <img src="../static/img/home_icon_sale.png" alt="">
+</div>
+<div id="information">
+    <div id="information-1" class="settop settopbox" style="    border-right: 1px solid #F1F1F1;
+    border-bottom: 1px solid #F1F1F1; margin-left: 0.01rem">
+        <div>静态余额</div>
+        <div id="static_balance"></div>
+        <a href="#"><div><img src="../static/img/icon_into.png" alt=""><span>查看账单</span></div></a>
+    </div>
+    <div id="information-2" class="settop settopbox">
+        <div>静态冻结</div>
+        <div id="static_blocked_balance"></div>
+        <a href="#"><div><img src="../static/img/icon_into.png" alt=""><span>查看账单</span></div></a>
+    </div>
+    <div id="information-3" class="settopbox">
+        <div>动态余额</div>
+        <div id="dynamic_balance"></div>
+        <a href="#"><div><img src="../static/img/icon_into.png" alt=""><span>查看账单</span></div></a>
+    </div>
+    <div id="information-4" class="settopbox" style="    border-left: 1px solid #F1F1F1;
+    border-top: 1px solid #F1F1F1;">
+        <div>家园币</div>
+        <div id="jiayuan_coin"></div>
+        <a href="#"><div><img src="../static/img/icon_into.png" alt=""><span>查看账单</span></div></a>
+    </div>
+</div>
+<div id="bottom">
+    <div id="bottom-1" style="border-bottom: 1px solid #F1F1F1">
+        <a href="#"> <img src="../static/img/icon_order.png" alt=""><span>交易中心</span><img src="../img/icon_right.png" alt="" style="margin-left: 0.5rem"></a>
+    </div>
+    <div id="bottom-2">
+        <a href="#"><img src="../static/img/icon_team.png" alt=""><span>我的团队</span><img src="../img/icon_right.png" alt="" style="margin-left: 0.5rem"></a>
+    </div>
+</div>
+</body>
+</html>

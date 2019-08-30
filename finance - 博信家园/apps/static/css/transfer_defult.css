@@ -1,0 +1,113 @@
+#head {
+    width:1rem;
+    height:0.45rem;
+    background: url("../img/home_bg.png");
+    background-size: 100%;
+    margin: 0 auto;
+    position: relative;
+    padding-top: 0.02rem;
+}
+#head-p {
+    position: absolute;
+    left: 0.04rem;
+    top:0.04rem;
+}
+#head-p img {
+    width:0.06rem;
+    height:0.06rem;
+}
+#head-w {
+    width:0.4rem;
+    height:0.12rem;
+    font-size:0.05rem;
+    font-family:PingFang-SC-Bold;
+    font-weight:bold;
+    color:rgba(255,255,255,1);
+    line-height:0.12rem;
+    text-align: center;
+    margin:0 auto ;
+}
+#logo {
+    width:0.19rem;
+    height:0.19rem;
+    background:url("../img/login_logo@2x.png");
+    background-size: 100%;
+    position: absolute;
+    left: 0.13rem;
+    top: 0.18rem;
+}
+#account {
+    position: absolute;
+    width:0.41rem;
+    height:0.07rem;
+    font-size:0.05rem;
+    font-family:PingFang-SC-Medium;
+    font-weight:500;
+    color:rgba(255,255,255,1);
+    line-height:0.07rem;
+    left: 0.36rem;
+    top: 0.18rem;
+}
+#fc {
+    width:0.33rem;
+    height:0.08rem;
+    background:linear-gradient(180deg,rgba(252,167,85,1) 0%,rgba(255,207,135,1) 100%);
+    border-radius:0.05rem;
+    position: absolute;
+    left: 0.36rem;
+    top: 0.28rem;
+    text-align: center;
+    line-height:0.08rem;
+}
+#fc span {
+    width:0.3rem;
+    height:0.05rem;
+    font-size:0.04rem;
+    font-family:PingFangSC-Regular;
+    font-weight:400;
+    color:rgba(255,255,255,1);
+    line-height:0.05rem;
+
+}
+#mid div {
+    width:0.91rem;
+    height:0.11rem;
+    margin: 0.08rem auto 0;
+}
+#mid div img {
+    width: 0.06rem;
+    height: 0.06rem;
+}
+#mid div input{
+    width:0.75rem;
+    height:0.1rem;
+    display: block;
+    border: 0;
+    border-bottom: 1px solid #F1F1F1;
+    outline: 0;
+    margin-left: 0.07rem;
+}
+.setc img:last-child {
+    margin-top: -0.08rem;
+    margin-left: 0.75rem;
+}
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+    font-family:PingFang-SC-Regular;
+    color: #B2B2B2;
+    font-size: 0.03rem;
+    letter-spacing: 3px;
+}
+#btn div {
+    width:0.83rem;
+    height:0.13rem;
+    background:rgba(6,134,239,1);
+    border-radius:0.02rem;
+    margin: 0.2rem auto 0;
+    font-size:0.05rem;
+    font-family:PingFang-SC-Regular;
+    font-weight:400;
+    color:rgba(255,255,255,1);
+    line-height:0.13rem;
+    letter-spacing:2px;
+    text-align: center;
+}

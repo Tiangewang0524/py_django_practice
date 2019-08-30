@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>博信家园-注册</title>
+    <link rel="stylesheet" href="../static/css/register-OK.css">
+    <link rel="stylesheet" href="../static/css/reset.css">
+    <script src="../static/js/jquery-1.12.4.js"></script>
+    <script src="../static/js/jquery.cookie.js"></script>
+    <script>
+        window.user_id = $.cookie("user");
+    </script>
+    <script type="text/javascript" src="../static/js/register.js"></script>
+    <script>
+        if (/(Android|iPhone|iPad|iPod)/i.test(navigator.userAgent)) {
+            console.log("yd");
+            let pageWidth = window.innerWidth; //浏览器视口
+            console.log(pageWidth);
+            document.write('<style>html{font-size:' + pageWidth + 'px}</style>')
+        } else {
+            console.log("pc");
+            let pageWidth = window.innerWidth*0.536;
+            let pageWidth2 = window.innerWidth*0.6;
+            console.log(pageWidth)
+            document.write('<style>html{font-size:' + 500+ 'px}</style>')
+            document.write('<style>.hqzc{left:' + pageWidth+ 'px}</style>')
+            document.write('<style>#input-confirm1{left:' + pageWidth2+ 'px}</style>')
+            document.write('<style>#input-confirm2{left:' + pageWidth2+ 'px}</style>')
+        };
+        function a() {
+            if ($("#psd-2").val()==$("#psd-1").val()&&$("#psd-1").val()!==undefined&&$("#psd-2").val()!==undefined) {
+                $("#input-confirm1").attr("src", "../img/true.png");
+                $("#input-confirm2").attr("src", "../img/true.png");
+                $("#input-confirm1").css("display","block");
+                $("#input-confirm2").css("display","block");
+            }else if ($("#psd-1").val()!=="") {
+                $("#input-confirm1").attr("src", "../img/false.png");
+                $("#input-confirm2").attr("src", "../img/false.png");
+                $("#input-confirm1").css("display","block");
+                $("#input-confirm2").css("display","block");
+            }else if($("#psd-1").val()==""){
+                $("#input-confirm1").css("display","none");
+                $("#input-confirm2").css("display","none");
+            }
+        }
+    </script>
+</head>
+<body onload="(function() { if(user_id){document.getElementById('id_user_id').value = user_id }})()">
+<div id="head">
+    <div id="logo"></div>
+    <div id="head-w">博信家园</div>
+</div>
+<div id="mid">
+    <div>
+        <img src="../static/img/icon_phone@3x.png" alt="" style="width: 0.08rem;height: 0.08rem;margin-bottom: 0.02rem"><label class="required"
+            for="id_user_id"></label><input type="text" name="" placeholder="请输入11位手机号" id="id_user_id">
+    </div>
+    <div style="width: 0.5rem;margin-left: 0.04rem">
+        <img src="../static/img/icon_code@3x.png" alt="" style="width: 0.08rem;height: 0.08rem;margin-bottom: 0.02rem"><input type="text" name=""  placeholder="请输入验证码" style="width: 0.4rem;">
+        <div style="" class="hqzc">获取注册码</div>
+    </div>
+    <div>
+        <img src="../static/img/icon_password_pre_1@3x.png" alt="" style="width: 0.08rem;height: 0.08rem;margin-bottom: 0.02rem">
+        <label for="psd-1"></label><input type="password" placeholder="请输入6-12位密码" id="psd-1" onblur="a()">
+{#        <img src="../static/img/false.png" id="input-confirm1" class="input-confirm1" style="position: absolute; width: 0.1rem;height: 0.1rem;display: none;">#}
+    </div>
+    <div>
+        <img src="../static/img/icon_password_pre_1@3x.png" alt="" style="width: 0.08rem;height: 0.08rem;margin-bottom: 0.02rem">
+        <label for="psd-2"></label><input type="password" placeholder="请再次确定密码" id="psd-2" onblur="a()" onchange="check_pwd()">
+{#        <img src="../static/img/false.png" id="input-confirm2" class="input-confirm2"style="position: absolute; width: 0.1rem;height: 0.1rem;;display: none;">#}
+    </div>
+    <div>
+        <img src="../static/img/login_icon_user@3x.png" alt="" style="width: 0.08rem;height: 0.08rem;margin-bottom: 0.02rem"><label
+            for="id_username"></label><input type="text" name="name" placeholder="请填写真实姓名" id="id_username">
+        </div>
+    <div>
+        <img src="../static/img/icon_card@3x.png" alt="" style="width: 0.08rem;height: 0.08rem;margin-bottom: 0.02rem"><label
+            for="bank_card"></label><input type="text" name="" placeholder="请填写银行卡号" id="bank_card">
+    </div>
+    <div>
+        <img src="../static/img/icon_zhifu@3x.png" alt="" style="width: 0.08rem;height: 0.08rem;margin-bottom: 0.02rem"><input type="text" name=""  placeholder="请填写支付宝" id="alipay_id">
+    </div>
+    <div>
+        <img src="../static/img/icon_password@3x.png" alt="" style="width: 0.08rem;height: 0.08rem;margin-bottom: 0.02rem"><input type="text" name=""  placeholder="请填写6位数支付密码" id="pay_pwd">
+    </div>
+    <div>
+        <img src="../static/img/icon_Recommend@3x.png" alt="" style="width: 0.08rem;height: 0.08rem;margin-bottom: 0.02rem"><input type="text" name=""  placeholder="请填写推荐人账号" id="superior_phone">
+    </div>
+    <div id="btn" style="width:0.83rem;height:0.13rem;background:rgba(6,134,239,1);border-radius:0.02rem;font-size:0.05rem;
+font-family:PingFang-SC-Bold;
+font-weight:bold;
+color:rgba(255,255,255,1);
+line-height:0.13rem;
+letter-spacing:4px;text-align: center;" onclick="register()">注册</div>
+</div>
+</body>
+</html>

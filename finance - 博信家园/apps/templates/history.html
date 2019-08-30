@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>history</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="../static/css/history.css">
+    <link rel="stylesheet" href="../static/css/reset.css">
+    <script src="../static/js/jquery-1.12.4.js"></script>
+    <script>
+        $(document).ready(function () {
+            var td = $("td");
+            for (var i=0;i<td.length;i++) {
+                var r=td.eq(i).text().match("[\\u4e00-\\u9fa5]");
+                console.log(r)
+                if(r=="提"){
+                    td.eq(i).css("color","#FCA755")
+                }
+            }
+        });
+        if (/(Android|iPhone|iPad|iPod)/i.test(navigator.userAgent)) {
+            console.log("yd");
+            var pageWidth = window.innerWidth; //浏览器视口
+            console.log(pageWidth);
+            document.write('<style>html{font-size:' + pageWidth + 'px}</style>')
+        } else {
+            console.log("pc");
+            var pageWidth = window.innerWidth*0.6;
+            console.log(pageWidth);
+            document.write('<style>html{font-size:' + 500+ 'px}</style>')
+        };
+    </script>
+</head>
+<body style="background-color: #F1F1F1;">
+<div id="head">
+    <img src="../static/img/back_defult.png" alt=""> <span>静态流水</span>
+</div>
+<div id="history-table">
+<table>
+    <tr>
+        <th>时间</th>
+        <th>金额</th>
+    </tr>
+    <tr>
+        <td>2019-03-31 23:15:19</td>
+        <td>释放5800</td>
+    </tr>
+    <tr>
+        <td>2019-03-31 23:15:19</td>
+        <td>释放5800</td>
+    </tr>
+    <tr>
+        <td>2019-03-31 23:15:19</td>
+        <td>释放5800</td>
+    </tr>
+    <tr>
+        <td>2019-02-21 23:15:19</td>
+        <td>提现5800</td>
+    </tr>
+    <tr>
+        <td>2019-02-21 23:15:19</td>
+        <td>提现5800</td>
+    </tr>
+    <tr>
+        <td>2019-03-31 23:15:19</td>
+        <td>释放5800</td>
+    </tr>
+    <tr>
+        <td>2019-02-21 23:15:19</td>
+        <td>提现5800</td>
+    </tr>
+    <tr>
+        <td>2019-03-31 23:15:19</td>
+        <td>释放5800</td>
+    </tr>
+    <tr>
+        <td>2019-02-21 23:15:19</td>
+        <td>提现5800</td>
+    </tr>
+    <tr>
+        <td>2019-03-31 23:15:19</td>
+        <td>释放5800</td>
+    </tr>
+    <tr>
+        <td>2019-02-21 23:15:19</td>
+        <td>提现5800</td>
+    </tr>
+    <tr>
+        <td>2019-02-21 23:15:19</td>
+        <td>提现5800</td>
+    </tr>
+    <tr>
+        <td>2019-03-31 23:15:19</td>
+        <td>释放5800</td>
+    </tr>
+    <tr>
+        <td>2019-02-21 23:15:19</td>
+        <td>提现5800</td>
+    </tr>
+
+</table>
+</div>
+
+
+</body>
+</html>

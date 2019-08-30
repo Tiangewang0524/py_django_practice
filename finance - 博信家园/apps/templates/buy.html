@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>buy</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="../static/css/buy.css">
+    <link rel="stylesheet" href="../static/css/reset.css">
+    <script src="../static/js/jquery-1.12.4.js"></script>
+    <script>
+        if (/(Android|iPhone|iPad|iPod)/i.test(navigator.userAgent)) {
+            console.log("yd");
+            var pageWidth = window.innerWidth; //浏览器视口
+            console.log(pageWidth);
+            document.write('<style>html{font-size:' + pageWidth + 'px}</style>')
+        } else {
+            console.log("pc");
+            var pageWidth = window.innerWidth*0.6;
+            console.log(pageWidth);
+            document.write('<style>html{font-size:' + 500+ 'px}</style>')
+        };
+    </script>
+</head>
+<body style="background-color:#fafafa;">
+<div id="head">
+    <img src="../static/img/back_defult.png" alt=""> <span>买入</span>
+</div>
+<div id="mid">
+    <div id="mid-w">买入数量</div>
+    <div id="choose">
+        <span>3000</span>
+        <img src="../static/img/icon_down@2x.png" alt="" id="count-select-click">
+    </div>
+    <div id="count-select-ul">
+        <ul>
+            <li class="li_select" style="background:rgba(0,0,0,0.8);">3000</li>
+            <li class="li_select">5000</li>
+            <li class="li_select">10000</li>
+            <li class="li_select" style="border-radius:0rem 0rem 0.02rem 0.02rem;">20000</li>
+        </ul>
+    </div>
+    <div id="psd-buy">交易密码</div>
+    <div id="psd-inp-box">
+        <input type="tel" maxlength="6" class="real-ipt">
+        <div class="surface-ipts">
+            <div class="surface-ipt">
+                <input type="password"disabled="true" style="margin-left: 0.06rem">
+                <input type="password" disabled="true" >
+                <input type="password" disabled="true">
+                <input type="password" disabled="true">
+                <input type="password" disabled="true">
+                <input type="password" disabled="true">
+            </div>
+        </div>
+    </div>
+</div>
+<div id="btn">
+    <div>转账</div>
+    <div style="border:1px solid rgba(6,134,239,1);color:rgba(6,134,239,1);background-color: #fff;">取消</div>
+</div>
+<script>
+    var pwd = "";
+    var len = 0;
+    // type=tel input框
+    var $inputs = $(".surface-ipt input");
+    $(".real-ipt").on("input", function () {
+        if (!$(this).val()) {   //无值
+        }
+        if (/^[0-9]*$/g.test($(this).val())) {  //有值且只能是数字（正则）
+            pwd = $(this).val().trim();
+            len = pwd.length;
+            for (var i in pwd) {
+                $inputs.eq(i).val(pwd[i]);
+            }
+            $inputs.each(function () {  //将有值的当前input 后面的所有input清空
+                var index = $(this).index();
+                if (index >= len) {
+                    $(this).val("");
+                }
+            })
+            if (len === 6) {
+                //执行付款操作
+            }
+        } else {    //清除val中的非数字，返回纯number的value
+            var arr = $(this).val().match(/\d/g);
+            try {
+                $(this).val($(this).val().slice(0,$(this).val().lastIndexOf(arr[arr.length-1])+1));
+            } catch(e) {
+                $(this).val("");
+            }
+        }
+        console.log("password:" + pwd);
+    })
+    var lis = $(".li_select");
+    for (var i=0;i<lis.length;i++) {
+        lis[i].onclick = function () {
+            document.querySelector("#choose span").innerText = this.innerText;
+            $("#count-select-ul ul").toggle()
+            document.querySelector("#choose").style.color = "#333333";
+        }
+    }
+    $("#count-select-click").click(function() {
+        $("#count-select-ul ul").toggle()
+    })
+</script>
+</body>
+</html>

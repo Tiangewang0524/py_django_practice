@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>欢迎来到博信家园</title>
+    <link rel="stylesheet" href="../static/css/login.css">
+    <link rel="stylesheet" href="../static/css/reset.css">
+    <script src="../static/js/jquery-1.12.4.js"></script>
+    <script type="text/javascript" src="../static/js/jquery.cookie.js"></script>
+    <script>
+        $.removeCookie('user',{path:'/'})
+    </script>
+    <script type="text/javascript" src="../static/js/login.js"></script>
+    <script>
+            if (/(Android|iPhone|iPad|iPod)/i.test(navigator.userAgent)) {
+                console.log("yd");
+                var pageWidth = window.innerWidth; //浏览器视口
+                console.log(pageWidth);
+                document.write('<style>html{font-size:' + pageWidth + 'px}</style>')
+            } else {
+                console.log("pc");
+                var pageWidth = window.innerWidth*0.6;
+                console.log(pageWidth);
+                document.write('<style>html{font-size:' + 500+ 'px}</style>')
+                //document.write('<style>#forget{margin-left:' + pageWidth + 'px}</style>')
+        };
+
+    </script>
+
+</head>
+<body style="background:url('../static/img/bg1.jpg') no-repeat;
+background-size: 100%;">
+<div id="logo"></div>
+<div id="head-w">博信家园</div>
+<div id="inp">
+    <div>
+        <img src="../static/img/login_icon_user_pre@2x.png" alt="" style="width: 0.08rem;height: 0.08rem;margin-bottom: 0.02rem"><label class="required"
+            for="id_user_id"></label><input type="text" name="user_id" placeholder="请输入账号" autofocus required id="id_user_id">
+    </div>
+    <div>
+        <img src="../static/img/icon_password_pre.png" alt="" style="width: 0.08rem;height: 0.08rem;margin-bottom: 0.02rem"><label class="required"
+            for="id_password"></label><input type="password" name="password" placeholder="请输入6-12位密码" autofocus required id="id_password">
+    </div>
+</div>
+<div id="forget">忘记密码？</div>
+<div id="res" onclick="login()">登录</div>
+<div id="res"><a href="register-OK">注册</a></div>
+<div id="cancel">取消</div>
+
+</body>
+</html>
+
