@@ -20,7 +20,7 @@
             document.write('<style>html{font-size:' + 500+ 'px}</style>')
 
         };
-        countDown(18204);
+        countDown(6);
         function countDown(times){
             var timer=null;
             timer=setInterval(function(){
@@ -42,6 +42,7 @@
                 console.log(day+"天:"+hour+"小时："+minute+"分钟："+second+"秒");
                 times--;
                 $("#djs").text("倒计时: "+day+"天: "+hour+"时: "+minute+"分："+second+"秒");
+                {#alert(times)#}
             },1000);
             if(times<=0){
                 clearInterval(timer);

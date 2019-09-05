@@ -19,11 +19,15 @@ function login() {
                         if (data.message == '登陆成功') {
                             $.cookie("user", data.data, {"path": "/"});
                             console.log($.cookie("user"));
-                            if (data.state == '0') {
-                                window.location.href = "/bxjy/main"
+                            if (data.isSupperUser == '1'){
+                                window.location.href = "/bxjy/audit/index"
                             }
                             else {
-                                window.location.href = "/bxjy/main2"
+                                if (data.state == '0') {
+                                    window.location.href = "/bxjy/main"
+                                } else {
+                                    window.location.href = "/bxjy/main2"
+                                }
                             }
                         }
                     }

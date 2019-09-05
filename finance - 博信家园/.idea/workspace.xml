@@ -27,11 +27,13 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\finance\apps\static\css" />
+      <recent name="D:\finance\apps\templates\audit" />
+      <recent name="D:\finance\apps" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\finance\apps\static\js" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\finance\apps" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -86,7 +88,12 @@
       <workItem from="1567056783345" duration="436000" />
       <workItem from="1567057245629" duration="2293000" />
       <workItem from="1567061199162" duration="15149000" />
-      <workItem from="1567126942066" duration="24788000" />
+      <workItem from="1567126942066" duration="26586000" />
+      <workItem from="1567388459947" duration="17225000" />
+      <workItem from="1567473065458" duration="16188000" />
+      <workItem from="1567497750501" duration="6879000" />
+      <workItem from="1567565359883" duration="6167000" />
+      <workItem from="1567644822406" duration="25941000" />
     </task>
     <servers />
   </component>

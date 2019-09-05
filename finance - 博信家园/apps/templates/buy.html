@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>buy</title>
+    <title>博信家园-买入</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="../static/css/buy.css">
     <link rel="stylesheet" href="../static/css/reset.css">
     <script src="../static/js/jquery-1.12.4.js"></script>
+    <script src="../static/js/jquery.cookie.js"></script>
+    <script src="../static/js/buy.js"></script>
     <script>
         if (/(Android|iPhone|iPad|iPod)/i.test(navigator.userAgent)) {
             console.log("yd");
@@ -23,12 +25,12 @@
 </head>
 <body style="background-color:#fafafa;">
 <div id="head">
-    <img src="../static/img/back_defult.png" alt=""> <span>买入</span>
+    <a href="main2"><img src="../static/img/back_defult.png" alt=""></a> <span>买入</span>
 </div>
 <div id="mid">
     <div id="mid-w">买入数量</div>
     <div id="choose">
-        <span>3000</span>
+        <span id="buy_val">3000</span>
         <img src="../static/img/icon_down@2x.png" alt="" id="count-select-click">
     </div>
     <div id="count-select-ul">
@@ -41,11 +43,11 @@
     </div>
     <div id="psd-buy">交易密码</div>
     <div id="psd-inp-box">
-        <input type="tel" maxlength="6" class="real-ipt">
+        <input type="tel" maxlength="6" class="real-ipt" id="pay_pwd">
         <div class="surface-ipts">
             <div class="surface-ipt">
                 <input type="password"disabled="true" style="margin-left: 0.06rem">
-                <input type="password" disabled="true" >
+                <input type="password" disabled="true">
                 <input type="password" disabled="true">
                 <input type="password" disabled="true">
                 <input type="password" disabled="true">
@@ -55,8 +57,8 @@
     </div>
 </div>
 <div id="btn">
-    <div>转账</div>
-    <div style="border:1px solid rgba(6,134,239,1);color:rgba(6,134,239,1);background-color: #fff;">取消</div>
+    <div onclick="buy()">转账</div>
+    <div style="border:1px solid rgba(6,134,239,1);color:rgba(6,134,239,1);background-color: #fff;"><a href="main2">取消</a></div>
 </div>
 <script>
     var pwd = "";

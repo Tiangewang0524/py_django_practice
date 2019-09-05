@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>sale</title>
+    <title>博信家园-卖出</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="../static/css/sale.css">
     <link rel="stylesheet" href="../static/css/reset.css">
     <script src="../static/js/jquery-1.12.4.js"></script>
+    <script src="../static/js/jquery.cookie.js"></script>
     <script>
         if (/(Android|iPhone|iPad|iPod)/i.test(navigator.userAgent)) {
             console.log("yd");
@@ -23,7 +24,7 @@
 </head>
 <body style="background-color: #F1F1F1;">
 <div id="head">
-    <img src="../static/img/back_defult.png" alt=""> <span>买入</span>
+    <a href="main2"><img src="../static/img/back_defult.png" alt=""></a> <span>卖出</span>
 </div>
 <div id="mid">
     <div class="mid-choose">
@@ -34,14 +35,14 @@
         出售数量
     </div>
     <div id="sale-j" class="input-style">
-        <input type="tel" oninput="value=value.replace(/[^\d]/g,'')" placeholder="出售数量需为100的整数倍">
+        <input type="tel" oninput="value=value.replace(/[^\d]/g,'')" placeholder="出售数量需为100的整数倍" id="sell_static">
     </div>
     <div id="sale-d" class="input-style" style="display: none">
-        <input type="tel" oninput="value=value.replace(/[^\d]/g,'')" placeholder="出售数量需为500的整数倍">
+        <input type="tel" oninput="value=value.replace(/[^\d]/g,'')" placeholder="出售数量需为500的整数倍" id="sell_dynamic">
     </div>
     <div id="psd-buy">交易密码</div>
     <div id="psd-inp-box">
-        <input type="tel" maxlength="6" class="real-ipt">
+        <input type="tel" maxlength="6" class="real-ipt" id="pay_pwd">
         <div class="surface-ipts">
             <div class="surface-ipt">
                 <input type="password"disabled="true" style="margin-left: 0.06rem">
@@ -56,8 +57,8 @@
 </div>
 
 <div id="btn">
-    <div>确认</div>
-    <div style="border:1px solid rgba(6,134,239,1);color:rgba(6,134,239,1);background-color: #fff; margin-top: 0.05rem">取消</div>
+    <div onclick="sell()">确认</div>
+    <div style="border:1px solid rgba(6,134,239,1);color:rgba(6,134,239,1);background-color: #fff; margin-top: 0.05rem"><a href="main2">取消</a></div>
 </div>
 <span class="false" id="100">请输入100的倍数</span>
 <span class="false" id="500">请输入500的倍数</span>
@@ -140,3 +141,4 @@
 </script>
 </body>
 </html>
+<script src="../static/js/sell.js"></script>

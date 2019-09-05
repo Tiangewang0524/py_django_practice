@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>博信家园-管理员页面</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0,minimum-scale=0.69, maximum-scale=1.0, user-scalable=yes"/>
+    <link rel="stylesheet" href="../../static/css/reset.css">
+    <link rel="stylesheet" href="../../static/css/bx-pc.css">
+</head>
+<body>
+<div class="bx-head">
+    <div class="bx-head-p"><img src="../../static/img/bxjy.png" alt=""></div>
+    <a href="../login"><div class="bx-head-w">博信家园</div></a>
+</div>
+
+<div id="buy" class="box">
+    <div id="buy-head" class="head-body">
+        <div id="buy-head-p" class="head-body-p"><img src="../../static/img/nav.png" alt=""></div>
+        <div id="buy-head-w" class="head-body-w">购买信息<a id="all_buy"></a></div>
+    </div>
+    <div id="buy-body" style="width: 100%;">
+        <table id="t_left">
+            <tr id="buy-table-th" class="table-th" style="background-color: #fff;">
+                <th>用户信息</th>
+                <th>发布时间</th>
+                <th>金额</th>
+            </tr>
+            <tbody id="tbody">
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div id="sale" class="box2" style="left:55%;top: 17%;">
+    <div id="sale-head" class="head-body">
+        <div id="sale-head-p" class="head-body-p"><img src="../../static/img/nav.png" alt=""></div>
+        <div id="sale-head-w" class="head-sale-w">出售信息<a id="all_sell"></a></div>
+    </div>
+    <div id="sale-body" style="width: 100%;">
+        <table id="t_right">
+            <tr id="sale-table-th" class="table-th" style="background-color: #fff;">
+                <th>用户信息</th>
+                <th>发布时间</th>
+                <th>金额</th>
+            </tr>
+            <tbody id="tbody_2">
+            </tbody>
+        </table>
+    </div>
+</div>
+<div id="btn" onclick="addMatch()">
+    <img src="../../static/img/pipei.png" alt="">
+</div>
+<script type="text/javascript" src="../../static/js/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="../../static/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="../../static/js/audit.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var h = $("#buy").height();
+        var s = $("#sale").height();
+        console.log(h);
+        if (h < $("body").height() && s < $("body").height()) {
+            $("#btn").css("margin-top", $("body").height())
+        } else {
+            if (h > s) {
+                $("#btn").css("margin-top", h + 100);
+            } else {
+                $("#btn").css("margin-top", s + 100);
+            }
+        }
+    })
+</script>
+</body>
+</html>
