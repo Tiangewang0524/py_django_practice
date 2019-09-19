@@ -43,3 +43,11 @@ class BookSpider(scrapy.Item):
     name = scrapy.Field()
     price = scrapy.Field()
     content = scrapy.Field()
+
+
+class Weather(scrapy.Item):
+    # define the fields for your item here like:
+    date = scrapy.Field()
+    weather = scrapy.Field()
+    temperature = scrapy.Field()
+    wind = scrapy.Field()
