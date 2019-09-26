@@ -1,0 +1,104 @@
+﻿-- 对 machine_name 清洗
+-- 删除机器名不符合标准，商品名不符合标准，价格也不符合标准。
+DELETE FROM sale_data WHERE machine_name not like '%号机' AND goods_name not in ('可乐', '雪碧', '芬达') AND price not in (10, 12);
+
+-- 删除机器名：测试用
+DELETE FROM sale_data WHERE machine_name = '测试用';
+
+-- 删除小程序中，时间为0，价格低于4元
+DELETE FROM sale_data WHERE machine_name = '小程序' and (sale_time = '0000-00-00 00:00:00' OR price < 4);
+
+-- 把机器名空白的记录，机器名改为无名机
+UPDATE sale_data SET machine_name = '无名机' WHERE machine_name = ' ';
+
+
+-- 对 user_id 清洗
+DELETE FROM sale_data WHERE payment = '';
+
+-- 支付方式为取货码，user_id 不应为空，统一插补为：99999999
+UPDATE sale_data SET user_id = '99999999' WHERE user_id = '' AND payment = '取货码';
+
+-- 支付方式为刷卡，user_id 不应为空，统一插补为：无卡号
+UPDATE sale_data SET user_id = '无卡号' WHERE user_id = '' AND payment = '刷卡';
+
+-- 支付方式为微信，user_id 不应为空，统一插补为：无微信号
+UPDATE sale_data SET user_id = '无微信号' WHERE user_id = '' AND payment = '微信';
+
+-- 支付方式为支付宝，user_id 不应为空，统一插补为：无支付宝号
+UPDATE sale_data SET user_id = '无支付宝号' WHERE user_id = '' AND payment = '支付宝';
+
+-- 支付方式为现金，user_id 统一插补为：现金支付
+UPDATE sale_data SET user_id = '现金支付' WHERE user_id = '' AND payment = '现金';
+
+
+-- 对 sale_time 清洗
+-- sale_time 时间小于2015年数据，做删除处理
+DELETE FROM sale_data WHERE sale_time < '2015';
+
+-- sale_time 时间等于 2015-08-18 13:58:41，有17万余条，属于重复数据，做删除处理
+DELETE FROM sale_data WHERE sale_time = '2015-08-18 13:58:41';
+
+
+-- 对 goods_name 清洗
+-- goods_name 为 测试商品，做删除处理
+DELETE FROM sale_data WHERE goods_name = '测试商品';
+
+-- goods_name 为空，8月11日之后有芬达，但是芬达比例比较低，插值使用可乐和雪碧，交替插值
+DELETE FROM sale_data WHERE goods_name = '测试商品';
+
+-- goods_name 为空，8月11日之后有芬达，但是芬达比例比较低，插值使用可乐和雪碧，交替插值
+UPDATE sale_data SET goods_name = '可乐' WHERE goods_name = '' and id % 2 = 0;
+UPDATE sale_data SET goods_name = '雪碧' WHERE goods_name = '' and id % 2 != 0;
+
+
+-- 对 price 清洗
+-- price 小于 4，属于测试数据，删除处理
+DELETE FROM sale_data WHERE price < 4;
+
+-- 对 payment 清洗
+-- 无
+
+
+
+INSERT INTO card_demo (
+	user_id,
+	sale_c,
+	kele,
+	xuebi,
+	fenda,
+	date_begin,
+	date_end
+) SELECT
+	user_id,
+	COUNT(user_id) AS sale_c,
+	SUM(goods_name = '可乐') AS kele,
+	SUM(goods_name = '雪碧') AS xuebi,
+	SUM(goods_name = '芬达') AS fenda,
+	MIN(sale_time) AS date_begin,
+	MAX(sale_time) AS date_end
+FROM
+	sale_data
+WHERE
+	payment = '刷卡'
+GROUP BY
+	user_id; 
+
+
+
+
+CREATE TABLE `card_demo` (
+	`id` INT(25) NOT NULL AUTO_INCREMENT,
+	`user_id` VARCHAR(50) NULL DEFAULT NULL,
+	`sale_c` DECIMAL(11,2) NULL DEFAULT NULL,
+	`kele` INT(8) UNSIGNED NULL DEFAULT NULL,
+	`xuebi` INT(8) UNSIGNED NULL DEFAULT NULL,
+	`fenda` INT(8) NULL DEFAULT NULL,
+	`date_begin` DATETIME NULL DEFAULT NULL,
+	`date_end` DATETIME NULL DEFAULT NULL,
+	PRIMARY KEY (`id`),
+	INDEX `OpenID` (`user_id`) USING BTREE
+)
+COLLATE='utf8_general_ci'
+ENGINE=MyISAM
+AUTO_INCREMENT=1
+;

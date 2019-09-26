@@ -6,7 +6,7 @@ from mySpider.items import Weather
 class Spider1Spider(scrapy.Spider):
     name = 'weather_spider'
     allowed_domains = ['www.tianqihoubao.com']
-    start_urls = ['http://www.tianqihoubao.com/lishi/nanjing/month/201509.html']
+    start_urls = ['http://www.tianqihoubao.com/lishi/nanjing/month/201505.html']
 
     def parse(self, response):
         # 获取所有天气信息
@@ -18,6 +18,8 @@ class Spider1Spider(scrapy.Spider):
             # 去掉第一行名称
             if wea.xpath('td[1]/a/text()').extract():
                 item['date'] = wea.xpath('td[1]/a/text()').extract()[0].replace('\r\n', '').replace(' ', '')
+                # 对date做进一步规范处理
+                item['date'] = item['date'][:4] + '-' + item['date'][5:7] + '-' + item['date'][8:10]
                 item['weather'] = wea.xpath('td[2]/text()').extract()[0].replace("\r\n", '').replace(' ', '')
                 item['temperature'] = wea.xpath('td[3]/text()').extract()[0].replace("\r\n", '').replace(' ', '')
                 item['wind'] = wea.xpath('td[4]/text()').extract()[0].replace('\r\n', '').replace(' ', '')
