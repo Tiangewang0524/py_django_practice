@@ -74,9 +74,9 @@ class NBA_Spider(scrapy.Spider):
                 yield item
 
     def parse_stat(self, response):
-        print("爬虫工作中，正在爬取" + str(eval(response.meta['item'])['player_name']) + "信息。")
-        career_play = response.xpath('//*[@id="in_box"]/div/div[1]/table[1]/tbody/tr[3]/td[1]/text()').extract()
         item = eval(response.meta['item'])
+        print("爬虫工作中，正在爬取" + str(item['player_name']) + "信息。")
+        career_play = response.xpath('//*[@id="in_box"]/div/div[1]/table[1]/tbody/tr[3]/td[1]/text()').extract()
         if career_play:
             career_minute = response.xpath('//*[@id="in_box"]/div/div[1]/table[1]/tbody/tr[3]/td[2]/text()').extract()[0]
             FG = response.xpath('//*[@id="in_box"]/div/div[1]/table[1]/tbody/tr[3]/td[4]/text()').extract()[0]

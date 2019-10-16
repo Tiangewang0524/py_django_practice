@@ -51,3 +51,11 @@ class Weather(scrapy.Item):
     weather = scrapy.Field()
     temperature = scrapy.Field()
     wind = scrapy.Field()
+
+
+class Food(scrapy.Item):
+    # define the fields for your item here like:
+    name = scrapy.Field()
+    calorie = scrapy.Field()
+    # temperature = scrapy.Field()
+    # wind = scrapy.Field()
